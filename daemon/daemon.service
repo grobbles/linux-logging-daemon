@@ -1,0 +1,14 @@
+
+[Unit]
+Description=Daemon Template
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/daemon \
+	--configFile /etc/daemon/daemon.conf \
+	--logFilePath /var/log/daemon/
+User=root
+ExecReload=/bin/kill -HUP $MAINPID
+
+[Install]
+WantedBy=multi-user.target

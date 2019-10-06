@@ -1,19 +1,20 @@
 cmake_minimum_required (VERSION 3.10)
-project (daemon)
+project (loggingDaemon)
 
 # Version Definition  #####################################################
-set(VERSION_MAJOR 1)
-set(VERSION_MINOR 0)
+set(VERSION_MAJOR 0)
+set(VERSION_MINOR 1)
 set(VERSION_PATCH 0)
 
 
 # Modules  #################################################################
-add_subdirectory(daemon)
+add_subdirectory(loggingDaemon)
+add_subdirectory(loggingLib)
 
 
 # Package Generator  #######################################################
 SET(CPACK_GENERATOR "DEB")
-set(CPACK_PACKAGE_DESCRIPTION "A daemon example")
+set(CPACK_PACKAGE_DESCRIPTION "A logging daemon example")
 set(CPACK_PACKAGE_VERSION_MAJOR "${VERSION_MAJOR}")
 set(CPACK_PACKAGE_VERSION_MINOR "${VERSION_MINOR}")
 set(CPACK_PACKAGE_VERSION_PATCH "${VERSION_PATCH}")

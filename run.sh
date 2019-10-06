@@ -1,6 +1,6 @@
 #!/bin/bash
 
-APPLICATION_NAME=daemon
+APPLICATION_NAME=loggingDaemon
 CMAKE=/usr/bin/cmake
 
 ########################################################################################################
@@ -10,7 +10,7 @@ function helpPage() {
 
     -i, --initialize:           initialize the project and initialize the git submodules (gtest)
 
-    -b, --buildDaemon:          build the all executables
+    -b, --buildAll:             build the all executables
 
     -bD, --buildDaemon:         build the daemon executables
 
@@ -84,7 +84,7 @@ function createDebianPackage() {
 
 function startDaemon() {
     buildDaemon
-    echo "start daemon"
+    echo "start loggingDaemon"
     systemctl stop $APPLICATION_NAME
     sleep 1
 
@@ -95,9 +95,9 @@ function startDaemon() {
     sudo cp $PWD/$APPLICATION_NAME/$APPLICATION_NAME.service /usr/lib/systemd/system
 
     echo "copy file: $APPLICATION_NAME.config to /etc/$APPLICATION_NAME"
-    sudo rm -vfr /etc/daemon
-    sudo mkdir /etc/daemon
-    sudo cp $PWD/$APPLICATION_NAME/$APPLICATION_NAME.service /etc/daemon/
+    sudo rm -vfr /etc/loggingDaemon
+    sudo mkdir /etc/loggingDaemon
+    sudo cp $PWD/$APPLICATION_NAME/$APPLICATION_NAME.config /etc/loggingDaemon/
 
     systemctl start $APPLICATION_NAME &
     sleep 3
@@ -134,12 +134,12 @@ case "$1" in
     buildDaemon
     ;;
 
--tD | --testDaemon)
+-rT | --testDaemon)
     echo "test daemon"
     testDaemon
     ;;
 
--r | --run)
+-rP | --run)
     echo "run daemon"
     run
     ;;

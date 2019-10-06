@@ -15,6 +15,7 @@ LoggingProcessor& LoggingProcessor::getInstance() {
 void LoggingProcessor::enableFilelog() {
     this->isFilelogEnable = true;
 
+    // TODO move to own class
     struct stat st;
     if (stat(logFilePath.c_str(), &st) != 0) {
         if (mkdir(logFilePath.c_str(), 0777) == -1) {

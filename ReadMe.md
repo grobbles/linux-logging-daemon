@@ -2,11 +2,7 @@
 
 ## Description
 
-This a simple linux daemon with the following functions:
-
--   this daemon create a own log file in /var/log/"DaemonName"
--   read the configration from /etc/"DaemonName"/"DaemonName".conf
--   the daemon start automaticlley with systemd
+This is a logging server for Linux.. The clients can be connected to the server about ips socket file. All log message come in the Client log file under the path : /var/log/loggingServer. This path can you change with the loggingDeamon.config file in the /etc/loggingServer
 
 ## Needed tools
 

@@ -14,15 +14,7 @@ Arguments:
     -h | --help         : print the help description
 
     -b | --build        : build the python package
-
-    -i | --install      : install the package to your system
-
-    -u | --uninstall    : uninstall the package from your system
-
-    -c | --cleanProject : clean the project
-
-    -d | --docker       : docker stuff
-              -> parmeter: path to mount in the work directory
+            parameter: module name
 
 EOF
 }
@@ -41,7 +33,8 @@ function createModuleDirectory() {
 function createModuleHeaderFile() {
     moduleName=$1
     cat >${moduleName}/${moduleName}.hpp <<EOF
-#pragma once
+#ifndef ${moduleName^^}_HPP
+#define ${moduleName^^}_HPP
 
 #include <set>
 #include <string>
@@ -58,6 +51,8 @@ class ${moduleName} {
     ${moduleName}();
     ~${moduleName}();
 };
+
+#endif /* ${moduleName^^}_HPP */
 EOF
 }
 

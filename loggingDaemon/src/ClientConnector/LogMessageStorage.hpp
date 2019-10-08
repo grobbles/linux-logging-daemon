@@ -7,7 +7,7 @@
 #include <queue>
 #include <string>
 
-#include "../ObserverPattern/Observer.hpp"
+#include "../Utils//ObserverPattern/Observer.hpp"
 
 using namespace std;
 

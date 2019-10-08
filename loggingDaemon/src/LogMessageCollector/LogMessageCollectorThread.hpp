@@ -6,9 +6,9 @@
 #include <string>
 
 #include "../ClientConnector/ClientConnector.hpp"
-#include "../ObserverPattern/Observer.hpp"
-#include "../ObserverPattern/Subject.hpp"
-#include "../Logging/Logger.hpp"
+#include "../Utils//ObserverPattern/Observer.hpp"
+#include "../Utils//ObserverPattern/Subject.hpp"
+#include "../Utils/Logging/Logger.hpp"
 
 using namespace std;
 

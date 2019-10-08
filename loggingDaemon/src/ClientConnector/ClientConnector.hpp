@@ -15,8 +15,8 @@
 #include "ClientConnectorThread.hpp"
 #include "LogMessageStorage.hpp"
 
-#include "../Logging/Logger.hpp"
-#include "../ObserverPattern/Observer.hpp"
+#include "../Utils//ObserverPattern/Observer.hpp"
+#include "../Utils/Logging/Logger.hpp"
 
 using namespace std;
 

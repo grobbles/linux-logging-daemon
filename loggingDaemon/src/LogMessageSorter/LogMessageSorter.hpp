@@ -3,9 +3,9 @@
 #include <set>
 #include <string>
 
-#include "../ObserverPattern/Observer.hpp"
-#include "../ObserverPattern/Subject.hpp"
-#include "../Logging/Logger.hpp"
+#include "../Utils//ObserverPattern/Observer.hpp"
+#include "../Utils//ObserverPattern/Subject.hpp"
+#include "../Utils/Logging/Logger.hpp"
 #include "LogMessageParser.hpp"
 
 using namespace std;

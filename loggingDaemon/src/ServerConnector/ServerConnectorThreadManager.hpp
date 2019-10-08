@@ -1,8 +1,8 @@
 
 #pragma once
 
-#include "../ObserverPattern/Subject.hpp"
-#include "../Logging/Logger.hpp"
+#include "../Utils//ObserverPattern/Subject.hpp"
+#include "../Utils/Logging/Logger.hpp"
 #include "ServerConnector.hpp"
 #include "thread"
 

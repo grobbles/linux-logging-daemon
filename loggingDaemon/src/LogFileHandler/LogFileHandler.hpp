@@ -8,8 +8,8 @@
 #include <sys/time.h>
 #include <sys/types.h>
 
-#include "../ObserverPattern/Observer.hpp"
-#include "../Logging/Logger.hpp"
+#include "../Utils//ObserverPattern/Observer.hpp"
+#include "../Utils/Logging/Logger.hpp"
 
 using namespace std;
 

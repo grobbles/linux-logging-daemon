@@ -5,7 +5,7 @@ project(${MODULE_NAME})
 
 set(CMAKE_CXX_FLAGS  -pthread)
 
-file(GLOB SOURCES "main.cpp" "src/*/*.cpp" "../src/*/*.hpp"  "../src/*/*.cpp") 
+file(GLOB SOURCES "main.cpp" "src/*/*.cpp" "../src/*/*.hpp"  "../src/*/*.cpp"  "../src/*/*/*.hpp"  "../src/*/*/*.cpp") 
 
 message(${SOURCES})
 add_executable(${MODULE_NAME} ${SOURCES})

@@ -14,7 +14,7 @@
 #include <unistd.h>
 
 #define BUF 2048
-#define UDS_FILE "/tmp/sock.uds"
+#define UDS_FILE "/tmp/loggingServer/serverConnection.uds"
 
 using namespace std;
 

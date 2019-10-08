@@ -46,7 +46,7 @@ function createModuleHeaderFile() {
 #include <set>
 #include <string>
 
-#include "../Logging/Logger.hpp"
+#include "../Utils/Logging/Logger.hpp"
 
 using namespace std;
 

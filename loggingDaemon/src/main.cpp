@@ -1,14 +1,14 @@
 
-#include "ArgumentParser/ArgumentParser.hpp"
-#include "Logging/Logger.hpp"
-#include "Logging/LoggingProcessor.hpp"
+#include "Utils/ArgumentParser/ArgumentParser.hpp"
+#include "Utils/Logging/Logger.hpp"
+#include "Utils/Logging/LoggingProcessor.hpp"
 
 #include "ClientConnector/ClientConnector.hpp"
-#include "LogFileHandler/LogFileHandler.hpp"
 #include "LogMessageCollector/LogMessageCollector.hpp"
 #include "LogMessageSorter/LogMessageSorter.hpp"
 #include "ServerConnector/ServerConnectorThreadManager.hpp"
-#include "SignalHandler/KillSignalHandler.hpp"
+#include "Utils/SignalHandler/KillSignalHandler.hpp"
+#include "LogFileHandler/LogFileHandler.hpp"
 
 #include <sys/stat.h>
 #include <sys/types.h>

@@ -6,8 +6,8 @@
 #include <string>
 
 #include "../ClientConnector/ClientConnector.hpp"
-#include "../ObserverPattern/Observer.hpp"
-#include "../ObserverPattern/Subject.hpp"
+#include "../Utils//ObserverPattern/Observer.hpp"
+#include "../Utils//ObserverPattern/Subject.hpp"
 #include "LogMessageCollectorThread.hpp"
 
 using namespace std;

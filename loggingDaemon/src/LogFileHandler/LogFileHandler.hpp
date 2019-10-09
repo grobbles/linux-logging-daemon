@@ -10,6 +10,7 @@
 
 #include "../Utils//ObserverPattern/Observer.hpp"
 #include "../Utils/Logging/Logger.hpp"
+#include "../Utils/DirectoryUtils/DirectoryUtils.hpp"
 
 using namespace std;
 

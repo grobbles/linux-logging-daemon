@@ -1,14 +1,15 @@
 
 #include "Utils/ArgumentParser/ArgumentParser.hpp"
+#include "Utils/DirectoryUtils/DirectoryUtils.hpp"
 #include "Utils/Logging/Logger.hpp"
 #include "Utils/Logging/LoggingProcessor.hpp"
 
 #include "ClientConnector/ClientConnector.hpp"
+#include "LogFileHandler/LogFileHandler.hpp"
 #include "LogMessageCollector/LogMessageCollector.hpp"
 #include "LogMessageSorter/LogMessageSorter.hpp"
 #include "ServerConnector/ServerConnectorThreadManager.hpp"
 #include "Utils/SignalHandler/KillSignalHandler.hpp"
-#include "LogFileHandler/LogFileHandler.hpp"
 
 #include <sys/stat.h>
 #include <sys/types.h>
@@ -33,6 +34,7 @@ string configLogging(const string applicatinName, ArgumentParser parser) {
     loggingProcessor.setProperies(logFilePath, applicatinName);
     loggingProcessor.enableTermial();
     loggingProcessor.enableFilelog();
+    loggingProcessor.enableSyslog();
 
     return logFilePath;
 }
@@ -80,15 +82,9 @@ int main(const int argc, const char** argv) {
         delete clientConnector;
         delete serverConnectorThreadManager;
 
-        // TODO remove the path and all UDS files
-        if (rmdir(UDS_PATH) >= 0) {
-            Log::i(logtag, "The path UDS_PATH is deleted. ");
-        } else {
+        if (!DirectoryUtils::remove(UDS_PATH)) {
             Log::i(logtag, "The path UDS_PATH could not be deleted!");
         }
-
-        return 0;
-
         return EXIT_SUCCESS;
 
     } catch (KillSignalException& e) {

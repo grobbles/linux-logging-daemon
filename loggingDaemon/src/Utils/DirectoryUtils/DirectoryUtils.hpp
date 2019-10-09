@@ -16,9 +16,9 @@ class DirectoryUtils {
     DirectoryUtils();
     ~DirectoryUtils();
 
-    static bool remove(const string directory);
-    static bool create(const string directory);
-    static bool isExist(const string directory);
+    static bool remove(const string directoryPath);
+    static bool create(const string directoryPath);
+    static bool isExist(const string directoryPath);
 
 };
 

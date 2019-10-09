@@ -5,8 +5,8 @@
  *      Author: roder
  */
 
-#ifndef LOGGING_LOGGER_HPP_
-#define LOGGING_LOGGER_HPP_
+#ifndef LOGGING_LOGGER_HPP
+#define LOGGING_LOGGER_HPP
 
 #include <bits/stdc++.h>
 #include <chrono>
@@ -41,4 +41,4 @@ class Log {
     static int getMilliseconds();
 };
 
-#endif /* LOGGING_LOGGER_HPP_ */
+#endif /* LOGGING_LOGGER_HPP */

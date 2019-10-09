@@ -1,12 +1,12 @@
 
 [Unit]
-Description=Daemon Template
+Description=Logging Daemon
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/daemon \
-	--configFile /etc/daemon/daemon.conf \
-	--logFilePath /var/log/daemon/
+ExecStart=/usr/bin/loggingDaemon \
+	--configFile /etc/loggingDaemon/loggingDaemon.conf \
+	--logFilePath /var/log/loggingDaemon/
 User=root
 ExecReload=/bin/kill -HUP $MAINPID
 

@@ -89,7 +89,7 @@ function startDaemon() {
     sleep 1
 
     echo "copy file: $APPLICATION_NAME to /usr/bin/ "
-    sudo cp $PWD/build/bin/$APPLICATION_NAME /usr/bin/
+    sudo cp $PWD/build/$APPLICATION_NAME/src/$APPLICATION_NAME /usr/bin/
 
     echo "copy file: $APPLICATION_NAME.service to /usr/lib/systemd/system"
     sudo cp $PWD/$APPLICATION_NAME/$APPLICATION_NAME.service /usr/lib/systemd/system

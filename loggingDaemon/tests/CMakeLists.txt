@@ -10,8 +10,7 @@ message("test SOURCES = " ${SOURCES})
 
 message(${SOURCES})
 add_executable(${MODULE_NAME} ${SOURCES})
-
-target_include_directories(${MODULE_NAME} PRIVATE  ../src/Utils/Logging/ ../src/Utils/ArgumentParser/)
+target_include_directories(${MODULE_NAME} PRIVATE  ../src/Utils/Logging/ ../src/Utils/ArgumentParser/ ../src/Utils/DirectoryUtils)
 
 target_link_libraries(${MODULE_NAME}  gtest)
 

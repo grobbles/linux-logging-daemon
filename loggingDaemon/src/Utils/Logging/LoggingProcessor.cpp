@@ -15,14 +15,8 @@ LoggingProcessor& LoggingProcessor::getInstance() {
 void LoggingProcessor::enableFilelog() {
     this->isFilelogEnable = true;
 
-    // TODO move to own class
-    struct stat st;
-    if (stat(logFilePath.c_str(), &st) != 0) {
-        if (mkdir(logFilePath.c_str(), 0777) == -1) {
-            std::cout << "Error: The path could not be created. " << std::endl;
-        }
-    } else {
-        std::cout << "The path is pesent." << std::endl;
+    if (!DirectoryUtils::create(logFilePath)) {
+        std::cout << "Error: The path could not be created. " << std::endl;
     }
 
     string date = createDate();
@@ -54,7 +48,7 @@ void LoggingProcessor::handleLogString(string logMessage) {
     }
 
     if (this->isSyslogEnable) {
-        syslog(LOG_INFO, logMessage.c_str());
+        syslog(LOG_INFO, logMessage.c_str(), NULL);
     }
 }
 

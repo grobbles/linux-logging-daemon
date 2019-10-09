@@ -1,4 +1,7 @@
-#pragma once
+#ifndef LOGGING_PROCESSOR_HPP
+#define LOGGING_PROCESSOR_HPP
+
+#include "../DirectoryUtils/DirectoryUtils.hpp"
 
 #include <bits/stdc++.h>
 #include <iostream>
@@ -45,3 +48,5 @@ class LoggingProcessor {
     string createDate();
     string numberToStringWithFixedLength(const int i, const int length);
 };
+
+#endif // LOGGING_PROCESSOR_HPP

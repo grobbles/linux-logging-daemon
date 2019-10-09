@@ -33,6 +33,12 @@ function createModuleDirectory() {
 function createModuleHeaderFile() {
     moduleName=$1
     cat >${moduleName}/${moduleName}.hpp <<EOF
+/*
+ * ${moduleName}.hpp
+ *
+ *  Created on: ${date}
+ *      Author: roder
+ */
 #ifndef ${moduleName^^}_HPP
 #define ${moduleName^^}_HPP
 

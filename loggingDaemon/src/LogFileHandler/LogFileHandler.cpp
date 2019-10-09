@@ -4,14 +4,8 @@ LogFileHandler::LogFileHandler(string logFilePath, string logFileName) {
     this->logFilePath = logFilePath;
     this->logFileName = logFileName;
 
-    // TODO move to own class
-    struct stat st;
-    if (stat(logFilePath.c_str(), &st) != 0) {
-        if (mkdir(logFilePath.c_str(), 0777) == -1) {
-            Log::e(this->logtag, "The directory (" + logFilePath + ") could not be create");
-        }
-    } else {
-        Log::i(this->logtag, "The path (" + logFilePath + ") is pesent");
+    if (!DirectoryUtils::create(logFilePath)) {
+        Log::e(this->logtag, "The directory (" + logFilePath + ") could not be create");
     }
 
     string date = createDate();

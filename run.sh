@@ -134,12 +134,12 @@ case "$1" in
     buildDaemon
     ;;
 
--rT | --testDaemon)
+-tD | --testDaemon)
     echo "test daemon"
     testDaemon
     ;;
 
--rP | --run)
+-rD | --run)
     echo "run daemon"
     run
     ;;

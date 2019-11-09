@@ -1,4 +1,5 @@
-#pragma once
+#ifndef SUBJECT_HPP
+#define SUBJECT_HPP
 
 #include "../Logging/Logger.hpp"
 #include <vector>
@@ -38,3 +39,5 @@ template <class T> class Subject {
         }
     }
 };
+
+#endif // ! SUBJECT_HPP

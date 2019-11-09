@@ -5,7 +5,8 @@
 #include <set>
 #include <string>
 
-#include "../ClientConnector/ClientConnector.hpp"
+
+#include "../LoggingClientInterface/LogMessageProvider.hpp"
 #include "../Utils//ObserverPattern/Observer.hpp"
 #include "../Utils//ObserverPattern/Subject.hpp"
 #include "LogMessageCollectorThread.hpp"
@@ -16,12 +17,12 @@ class LogMessageCollector : public Subject<set<string>>, Observer<set<string>> {
   private:
     const string logtag = "LogMessageCollector";
     LogMessageCollectorThread* logMessageCollectorThread;
-    ClientConnector* clientConnector;
+    LogMessageProvider* logMessageProvider;
 
     set<string> messageStorage;
 
   public:
-    LogMessageCollector(ClientConnector* clientConnector);
+    LogMessageCollector(LogMessageProvider* logMessageProvider);
     ~LogMessageCollector();
 
     void update(set<string> logMessages);

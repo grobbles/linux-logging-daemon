@@ -1,9 +1,9 @@
 #include "LogMessageCollector.hpp"
 
-LogMessageCollector::LogMessageCollector(ClientConnector* clientConnector) {
-    this->clientConnector = clientConnector;
+LogMessageCollector::LogMessageCollector(LogMessageProvider* logMessageProvider) {
+    this->logMessageProvider = logMessageProvider;
 
-    this->logMessageCollectorThread = new LogMessageCollectorThread(clientConnector);
+    this->logMessageCollectorThread = new LogMessageCollectorThread(logMessageProvider);
 
     this->logMessageCollectorThread->attachObserver(*this);
 

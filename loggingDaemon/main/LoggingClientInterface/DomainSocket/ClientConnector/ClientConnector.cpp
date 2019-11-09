@@ -16,7 +16,9 @@ void ClientConnector::createNewClientConnection(string clientConnectionFile) {
     Log::i(this->logtag, "It will be create a new client connection with socket file: " + clientConnectionFile);
 
     ClientConnectorThread* clientConnectorThread = new ClientConnectorThread(clientConnectionFile);
-    LogMessageStorage* logMessageStorage = new LogMessageStorage();
+
+    DataStorage* logMessageStorage = new DataStorage();
+
     clientConnectorThread->attachObserver(*logMessageStorage);
 
     this->clientConnetorThreads.push_back(clientConnectorThread);
@@ -28,6 +30,6 @@ void ClientConnector::createNewClientConnection(string clientConnectionFile) {
     this->threads.push_back(&t);
 }
 
-vector<LogMessageStorage*> ClientConnector::getLogMessageStorages() {
+vector<DataStorage*> ClientConnector::getLogMessageStorages() {
     return this->logMessageStorages;
 }

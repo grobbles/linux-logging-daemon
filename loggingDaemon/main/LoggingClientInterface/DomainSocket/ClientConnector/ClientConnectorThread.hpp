@@ -1,4 +1,3 @@
-#pragma once
 #ifndef CLIENT_CONNECTOR_HPP
 #define CLIENT_CONNECTOR_HPP
 
@@ -22,8 +21,8 @@
 #include <unistd.h>
 #include <vector>
 
-#include "../Utils//ObserverPattern/Subject.hpp"
-#include "../Utils/Logging/Logger.hpp"
+#include "../../../Utils/Logging/Logger.hpp"
+#include "../../../Utils/ObserverPattern/Subject.hpp"
 
 using namespace std;
 

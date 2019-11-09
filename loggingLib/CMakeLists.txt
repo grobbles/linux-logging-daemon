@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.10)
 project (loggingLib)
-
+message("")
 message("PROJECT_NAME = " ${PROJECT_NAME})
 
 set(PROJECT_DIRECTORY ${PROJECT_SOURCE_DIR}/${PROJECT_NAME})

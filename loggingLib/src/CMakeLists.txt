@@ -1,17 +1,27 @@
 cmake_minimum_required(VERSION 3.10)
 
-project(LoggingLib VERSION 1.1.0 DESCRIPTION "LoggerLib description")
+project(${PROJECT_NAME} VERSION 1.1.0 DESCRIPTION "LoggerLib description")
+set(MODULE_NAME ${PROJECT_NAME})
+message("")
+message("MODULE_NAME --> " ${MODULE_NAME})
 
-set(libName logger)
+set(CMAKE_CXX_FLAGS  -pthread)
 
-file(GLOB libSrcs "*.cpp" "*.h" "*.hpp")
-file(GLOB libHeader "*.h" "*.hpp")
+file(GLOB_RECURSE SOURCES "*.cpp")
+foreach(file ${SOURCES})
+    message("LIB SOURCE FILE = " ${file})
+endforeach()
 
-add_library(${libName} SHARED ${libSrcs})
+file(GLOB_RECURSE HEADER "*.hpp" "*.h")
+foreach(file ${HEADER})
+    message("LIB HEADER FILE = " ${file})
+endforeach()
+
+add_library(${MODULE_NAME} SHARED ${SOURCES})
 
 # set version liblogger.so.1.0.0
-set_target_properties(${libName} PROPERTIES VERSION ${PROJECT_VERSION})
-set_target_properties(${libName} PROPERTIES PUBLIC_HEADER "Logger.h")
+set_target_properties(${MODULE_NAME} PROPERTIES VERSION ${PROJECT_VERSION})
+set_target_properties(${MODULE_NAME} PROPERTIES PUBLIC_HEADER "Logger.h")
 
-install(TARGETS ${libName} DESTINATION lib)
+install(TARGETS ${MODULE_NAME} DESTINATION lib)
 install(FILES "Logger.h" DESTINATION include)

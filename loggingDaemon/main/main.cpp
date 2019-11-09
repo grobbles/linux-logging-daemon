@@ -4,11 +4,10 @@
 #include "Utils/Logging/Logger.hpp"
 #include "Utils/Logging/LoggingProcessor.hpp"
 
-#include "ClientConnector/ClientConnector.hpp"
 #include "LogFileHandler/LogFileHandler.hpp"
 #include "LogMessageCollector/LogMessageCollector.hpp"
-#include "LogMessageSorter/LogMessageSorter.hpp"
-#include "ServerConnector/ServerConnectorThreadManager.hpp"
+#include "LoggingClientInterface/LoggingClientInterface.hpp"
+#include "Utils/DataStorage/DataStorage.hpp"
 #include "Utils/SignalHandler/KillSignalHandler.hpp"
 
 #include <sys/stat.h>
@@ -18,11 +17,11 @@
 #define UDS_PATH "/tmp/loggingServer/"                     // UDS = unix domain socket
 #define DEFAULT_APP_NAME "LoggingServer"
 #define DEFAULT_LOG_PATH "/var/log/LoggingServer/"
-#define DEFUALT_CLIENT_LOG_FILE_NAME "Clients.log"
+#define DEFAULT_CLIENT_LOG_FILE_NAME "Clients.log"
 
 using namespace std;
 
-string configLogging(const string applicatinName, ArgumentParser parser) {
+string configLogging(const string applicationName, ArgumentParser parser) {
     string logFilePath;
     if (parser.exitsCommandOption("--logFilePath")) {
         logFilePath = parser.getCommandOption("--logFilePath");
@@ -31,8 +30,8 @@ string configLogging(const string applicatinName, ArgumentParser parser) {
     }
 
     LoggingProcessor& loggingProcessor = LoggingProcessor::getInstance();
-    loggingProcessor.setProperies(logFilePath, applicatinName);
-    loggingProcessor.enableTermial();
+    loggingProcessor.setProperies(logFilePath, applicationName);
+    loggingProcessor.enableTerminal();
     loggingProcessor.enableFilelog();
     loggingProcessor.enableSyslog();
 
@@ -41,11 +40,11 @@ string configLogging(const string applicatinName, ArgumentParser parser) {
 
 int main(const int argc, const char** argv) {
     string logtag = "main";
-    string clientLogFileName = DEFUALT_CLIENT_LOG_FILE_NAME;
-    string applicatinName = DEFAULT_APP_NAME;
+    string clientLogFileName = DEFAULT_CLIENT_LOG_FILE_NAME;
+    string applicationName = DEFAULT_APP_NAME;
 
     ArgumentParser parser(argc, argv);
-    string logFilePath = configLogging(applicatinName, parser);
+    string logFilePath = configLogging(applicationName, parser);
 
     struct stat st;
     if (stat(UDS_PATH, &st) != 0) {
@@ -53,34 +52,36 @@ int main(const int argc, const char** argv) {
             Log::e(logtag, "Error: The path could not be created. ");
         }
     } else {
-        Log::i(logtag, "The path is pesent. ");
+        Log::i(logtag, "The path is present. ");
     }
 
     try {
         KillSignalHandler killSignalHandler;
 
-        ServerConnectorThreadManager* serverConnectorThreadManager = new ServerConnectorThreadManager(UDS_FILE);
-        ClientConnector* clientConnector = new ClientConnector();
+        LoggingClientInterface* loggingClientInterface = new LoggingClientInterface();
 
-        LogMessageCollector* logMessageCollector = new LogMessageCollector(clientConnector);
-        LogMessageSorter* logMessageSorter = new LogMessageSorter();
+        // ServerConnectorThreadManager* serverConnectorThreadManager = new ServerConnectorThreadManager(UDS_FILE);
+        // ClientConnector* clientConnector = new ClientConnector();
+
+        // LogMessageCollector* logMessageCollector = new LogMessageCollector(clientConnector);
+
         LogFileHandler* logFileHandler = new LogFileHandler(logFilePath, clientLogFileName);
 
-        serverConnectorThreadManager->attachObserver(*clientConnector);
+        // serverConnectorThreadManager->attachObserver(*clientConnector);
 
-        logMessageCollector->attachObserver(*logMessageSorter);
-        logMessageSorter->attachObserver(*logFileHandler);
-
-        serverConnectorThreadManager->run();
+        // logMessageCollector->attachObserver(*logMessageSorter);
+        // logMessageSorter->attachObserver(*logFileHandler);
 
         while (!killSignalHandler.isKillSignalReceived()) {
             std::this_thread::sleep_for(50ms);
         }
 
+        delete loggingClientInterface;
+
         delete logFileHandler;
-        delete logMessageCollector;
-        delete clientConnector;
-        delete serverConnectorThreadManager;
+        // delete logMessageCollector;
+        // delete clientConnector;
+        // delete serverConnectorThreadManager;
 
         if (!DirectoryUtils::remove(UDS_PATH)) {
             Log::i(logtag, "The path UDS_PATH could not be deleted!");

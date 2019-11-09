@@ -5,9 +5,9 @@
 
 using namespace std;
 
-TEST(ArgumentParserTest, exitsCommandOption_positiv_test) {
+TEST(ArgumentParserTest, exitsCommandOption_positive_test) {
     LoggingProcessor& loggingProcessor = LoggingProcessor::getInstance();
-    loggingProcessor.enableTermial();
+    loggingProcessor.enableTerminal();
 
     const char* argv[] = { "ArgumentParserTest", "--logfile", "/var/log/daemon", "param2" };
     const int argc = 3;
@@ -16,9 +16,9 @@ TEST(ArgumentParserTest, exitsCommandOption_positiv_test) {
     EXPECT_TRUE(argumentParser.exitsCommandOption("--logfile"));
 }
 
-TEST(ArgumentParserTest, exitsCommandOption_negativ_test) {
+TEST(ArgumentParserTest, exitsCommandOption_negative_test) {
     LoggingProcessor& loggingProcessor = LoggingProcessor::getInstance();
-    loggingProcessor.enableTermial();
+    loggingProcessor.enableTerminal();
 
     const char* argv[] = { "ArgumentParserTest", "--logfile", "/var/log/daemon", "param2" };
     const int argc = 3;
@@ -27,9 +27,9 @@ TEST(ArgumentParserTest, exitsCommandOption_negativ_test) {
     EXPECT_FALSE(argumentParser.exitsCommandOption("--blubb"));
 }
 
-TEST(ArgumentParserTest, getCommandOption_positiv_test) {
+TEST(ArgumentParserTest, getCommandOption_positive_test) {
     LoggingProcessor& loggingProcessor = LoggingProcessor::getInstance();
-    loggingProcessor.enableTermial();
+    loggingProcessor.enableTerminal();
 
     const char* argv[] = { "ArgumentParserTest", "--logfile", "/var/log/daemon", "param2" };
     const int argc = 3;
@@ -38,9 +38,9 @@ TEST(ArgumentParserTest, getCommandOption_positiv_test) {
     EXPECT_EQ("/var/log/daemon", argumentParser.getCommandOption("--logfile"));
 }
 
-TEST(ArgumentParserTest, getCommandOption_negativ_test) {
+TEST(ArgumentParserTest, getCommandOption_negative_test) {
     LoggingProcessor& loggingProcessor = LoggingProcessor::getInstance();
-    loggingProcessor.enableTermial();
+    loggingProcessor.enableTerminal();
 
     const char* argv[] = { "ArgumentParserTest", "--logfile", "/var/log/daemon", "param2" };
     const int argc = 3;

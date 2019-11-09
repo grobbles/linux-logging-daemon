@@ -20,21 +20,21 @@ void LoggingProcessor::enableFilelog() {
     }
 
     string date = createDate();
-    string logFileName = date + "_" + applicatinName + ".log";
+    string logFileName = date + "_" + applicationName + ".log";
     this->file = ofstream(logFilePath + logFileName);
 }
 
 void LoggingProcessor::enableSyslog() {
     this->isSyslogEnable = true;
-    openlog(this->applicatinName.c_str(), LOG_PID | LOG_CONS, LOG_DAEMON);
+    openlog(this->applicationName.c_str(), LOG_PID | LOG_CONS, LOG_DAEMON);
 }
 
-void LoggingProcessor::enableTermial() {
-    this->isTermialEnable = true;
+void LoggingProcessor::enableTerminal() {
+    this->isTerminalEnable = true;
 }
 
 void LoggingProcessor::handleLogString(string logMessage) {
-    if (this->isTermialEnable) {
+    if (this->isTerminalEnable) {
         std::cout << logMessage << std::endl;
     }
 
@@ -52,9 +52,9 @@ void LoggingProcessor::handleLogString(string logMessage) {
     }
 }
 
-void LoggingProcessor::setProperies(string logFilePath, string applicatinName) {
+void LoggingProcessor::setProperies(string logFilePath, string applicationName) {
     this->logFilePath = logFilePath;
-    this->applicatinName = applicatinName;
+    this->applicationName = applicationName;
 }
 
 string LoggingProcessor::createDate() {

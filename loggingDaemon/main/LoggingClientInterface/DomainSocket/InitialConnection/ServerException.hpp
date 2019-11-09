@@ -1,4 +1,5 @@
-#pragma once
+#ifndef SERVER_EXCEPTION_H
+#define SERVER_EXCEPTION_H
 
 #include <string>
 
@@ -19,3 +20,5 @@ class ServerException {
         return (msg_);
     }
 };
+
+#endif // SERVER_EXCEPTION_H

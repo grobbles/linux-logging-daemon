@@ -1,5 +1,5 @@
 cmake_minimum_required (VERSION 3.10)
-project (loggingDaemon)
+# project (loggingDaemon)
 
 # Version Definition  #####################################################
 set(VERSION_MAJOR 0)

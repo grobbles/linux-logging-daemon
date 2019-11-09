@@ -71,7 +71,10 @@
         "random": "cpp",
         "regex": "cpp",
         "set": "cpp",
-        "string": "cpp"
+        "string": "cpp",
+        "any": "cpp",
+        "variant": "cpp",
+        "bit": "cpp"
     },
     "editor.formatOnSave": true,
     "todo-tree.showTagsFromOpenFilesOnly": false,

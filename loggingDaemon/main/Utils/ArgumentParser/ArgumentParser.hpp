@@ -1,4 +1,5 @@
-#pragma once
+#ifndef ARGUMENT_PARSER_HPP
+#define ARGUMENT_PARSER_HPP
 
 #include <set>
 #include <string>
@@ -20,3 +21,5 @@ class ArgumentParser {
     string getCommandOption(const string option);
     bool exitsCommandOption(const string option);
 };
+
+#endif // ARGUMENT_PARSER_HPP

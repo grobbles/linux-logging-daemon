@@ -21,24 +21,24 @@ class LoggingProcessor {
 
   private:
     string logFilePath;
-    string applicatinName;
+    string applicationName;
 
     bool isSyslogEnable = false;
-    bool isTermialEnable = false;
+    bool isTerminalEnable = false;
     bool isFilelogEnable = false;
 
     std::ofstream file;
 
   public:
     static LoggingProcessor& getInstance();
-    void setProperies(string logFilePath, string applicatinName);
+    void setProperies(string logFilePath, string applicationName);
 
     LoggingProcessor(LoggingProcessor const&) = delete;
     void operator=(LoggingProcessor const&) = delete;
     void handleLogString(string logMessage);
 
     void enableSyslog();
-    void enableTermial();
+    void enableTerminal();
     void enableFilelog();
 
   private:

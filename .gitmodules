@@ -1,0 +1,3 @@
+[submodule "CMakeLib"]
+    path = CMakeLib
+    url = git@github.com:grobbles/cmake-lib.git

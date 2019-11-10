@@ -9,6 +9,10 @@ set(CMAKE_CXX_FLAGS  -pthread)
 
 file(GLOB_RECURSE SOURCES "TestMain.cpp" "../*.cpp" "../*.hpp" ) 
 
+# It msut be remove the main.cpp because it was a duplicte definition.
+file(GLOB_RECURSE MAIN_PATH "../main.cpp") 
+list(REMOVE_ITEM SOURCES "${MAIN_PATH}")
+
 foreach(file ${SOURCES})
     message("TEST SOURCE FILE = " ${file})
 endforeach()

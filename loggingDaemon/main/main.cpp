@@ -60,10 +60,7 @@ int main(const int argc, const char** argv) {
 
         LoggingClientInterface* loggingClientInterface = new LoggingClientInterface();
 
-        // ServerConnectorThreadManager* serverConnectorThreadManager = new ServerConnectorThreadManager(UDS_FILE);
-        // ClientConnector* clientConnector = new ClientConnector();
-
-        // LogMessageCollector* logMessageCollector = new LogMessageCollector(clientConnector);
+        LogMessageCollector* logMessageCollector = new LogMessageCollector(loggingClientInterface);
 
         LogFileHandler* logFileHandler = new LogFileHandler(logFilePath, clientLogFileName);
 
@@ -79,7 +76,7 @@ int main(const int argc, const char** argv) {
         delete loggingClientInterface;
 
         delete logFileHandler;
-        // delete logMessageCollector;
+        delete logMessageCollector;
         // delete clientConnector;
         // delete serverConnectorThreadManager;
 

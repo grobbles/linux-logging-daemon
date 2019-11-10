@@ -36,28 +36,32 @@ void InitialConnection::run() {
     char* buffer = (char*)malloc(BUF);
 
     while (1) {
-        int connectionSocket = accept(serverSocket, (struct sockaddr*)&address, &addrlen);
-        if (connectionSocket > 0) {
-            Log::i(this->logtag, "The client is connected with server.");
+        try {
+            int connectionSocket = accept(serverSocket, (struct sockaddr*)&address, &addrlen);
+            if (connectionSocket > 0) {
+                Log::i(this->logtag, "The client is connected with server.");
+            }
+
+            ssize_t size = recv(connectionSocket, buffer, BUF - 1, 0);
+            if (size == -1) {
+                std::this_thread::sleep_for(50ms);
+                continue;
+            }
+
+            string clientPid = string(buffer).substr(0, size);
+
+            Log::i(this->logtag, "The PID received from the client is :  " + clientPid + "  with size: " + std::to_string(size));
+
+            string serverConnectionFile = InitialConnection::CLIENT_UDS_PATH + "/logServerTo" + clientPid + ".uds";
+
+            send(connectionSocket, serverConnectionFile.c_str(), serverConnectionFile.size(), 0);
+            Log::i(this->logtag, "The server will create clientConnectionFile :  " + serverConnectionFile);
+
+            this->notifyObserver(serverConnectionFile);
+
+            close(connectionSocket);
+        } catch (const std::exception& e) {
+            Log::e(this->logtag, "catch exception: " + string(e.what()));
         }
-
-        ssize_t size = recv(connectionSocket, buffer, BUF - 1, 0);
-        if (size == -1) {
-            std::this_thread::sleep_for(50ms);
-            continue;
-        }
-
-        string clientPid = string(buffer).substr(0, size);
-
-        Log::i(this->logtag, "The PID received from the client is :  " + clientPid + "  with size: " + std::to_string(size));
-
-        string serverConnectionFile = InitialConnection::CLIENT_UDS_PATH + "/logServerTo" + clientPid + ".uds";
-
-        send(connectionSocket, serverConnectionFile.c_str(), serverConnectionFile.size(), 0);
-        Log::i(this->logtag, "The server will create clientConnectionFile :  " + serverConnectionFile);
-
-        this->notifyObserver(serverConnectionFile);
-
-        close(connectionSocket);
     }
 }

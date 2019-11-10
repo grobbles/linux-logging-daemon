@@ -18,7 +18,7 @@ DomainSocketClientInterface::~DomainSocketClientInterface() {
 set<string> DomainSocketClientInterface::getMessages() {
     set<string> result;
 
-    vector<DataStorage*> logMessageStorages = this->clientConnector->getLogMessageStorages();
+    vector<DataStorage<string>*> logMessageStorages = this->clientConnector->getLogMessageStorages();
 
     for (auto logMessageStorage : logMessageStorages) {
 

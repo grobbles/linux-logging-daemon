@@ -23,13 +23,13 @@ class ClientConnector : public Observer<string> {
     string logtag = "ClientConnector";
     vector<thread*> threads;
     vector<ClientConnectorThread*> clientConnetorThreads;
-    vector<DataStorage*> logMessageStorages;
+    vector<DataStorage<string>*> logMessageStorages;
 
   public:
     ClientConnector();
     ~ClientConnector();
 
-    vector<DataStorage*> getLogMessageStorages();
+    vector<DataStorage<string>*> getLogMessageStorages();
 
   private:
     void update(string clientConnectionFile);

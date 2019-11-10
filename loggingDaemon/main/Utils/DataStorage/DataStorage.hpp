@@ -9,23 +9,63 @@
 
 using namespace std;
 
-class DataStorage : public Observer<string> {
+template <class T> class DataStorage : public Observer<T> {
   private:
     string logtag = "DataStorage";
-    set<string> firstStorage;
-    set<string> secondStorage;
+    set<T> firstStorage;
+    set<T> secondStorage;
     std::mutex storageMutex;
     atomic<bool> queueSelector;
 
   public:
-    DataStorage();
-    ~DataStorage();
+    DataStorage() {
+    }
+    ~DataStorage() {
+    }
 
-    void update(string newValue);
-    set<string> readMessages();
+    void update(T newValue) {
+        this->storageMutex.lock();
+        if (this->queueSelector) {
+            this->firstStorage.insert(newValue);
+        } else {
+            this->secondStorage.insert(newValue);
+        }
+
+        this->storageMutex.unlock();
+    }
+
+    set<T> readMessages() {
+        this->storageMutex.lock();
+
+        set<T> results;
+        if (this->isEmpty()) {
+            results = set<T>();
+
+        } else {
+            this->queueSelector = !this->queueSelector;
+
+            if (!this->queueSelector) {
+                results = this->firstStorage;
+                this->firstStorage = set<T>();
+            } else {
+                results = this->secondStorage;
+                this->secondStorage = set<T>();
+            }
+        }
+        this->storageMutex.unlock();
+        return results;
+    }
 
   private:
-    bool isEmpty();
+    bool isEmpty() {
+        bool isEmpty;
+        if (this->queueSelector) {
+            isEmpty = firstStorage.empty();
+        } else {
+            isEmpty = secondStorage.empty();
+        }
+        return isEmpty;
+    }
 };
 
 #endif // DATA_STORAGE_HPP

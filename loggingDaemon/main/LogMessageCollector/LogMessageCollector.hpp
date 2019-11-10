@@ -5,18 +5,18 @@
 #include <set>
 #include <string>
 
-
 #include "../LoggingClientInterface/LogMessageProvider.hpp"
 #include "../Utils//ObserverPattern/Observer.hpp"
 #include "../Utils//ObserverPattern/Subject.hpp"
-#include "LogMessageCollectorThread.hpp"
 
 using namespace std;
+
+#define CYCLE_TIME 50ms
 
 class LogMessageCollector : public Subject<set<string>>, Observer<set<string>> {
   private:
     const string logtag = "LogMessageCollector";
-    LogMessageCollectorThread* logMessageCollectorThread;
+
     LogMessageProvider* logMessageProvider;
 
     set<string> messageStorage;
@@ -25,5 +25,6 @@ class LogMessageCollector : public Subject<set<string>>, Observer<set<string>> {
     LogMessageCollector(LogMessageProvider* logMessageProvider);
     ~LogMessageCollector();
 
-    void update(set<string> logMessages);
+  private:
+    void run();
 };

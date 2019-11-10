@@ -35,21 +35,26 @@ void ClientConnectorThread::runClientConnectionThread() {
     }
 
     while (1) {
-        ssize_t size = recv(new_socket, buffer, 1024 - 1, 0);
-        if (size == 0) {
-            break;
-        }
-        string logMessageFromClient = string(buffer).substr(0, size);
+        try {
+            ssize_t size = recv(new_socket, buffer, 1024 - 1, 0);
+            if (size == 0) {
+                break;
+            }
+            string logMessageFromClient = string(buffer).substr(0, size);
 
-        if (isClientDead(logMessageFromClient)) {
-            break;
-        }
+            if (isClientDead(logMessageFromClient)) {
+                break;
+            }
 
-        if (logMessageFromClient.back() != '\n') {
-            logMessageFromClient.push_back('\n');
-        }
+            if (logMessageFromClient.back() != '\n') {
+                logMessageFromClient.push_back('\n');
+            }
 
-        this->notifyObserver(logMessageFromClient);
+            this->notifyObserver(logMessageFromClient);
+
+        } catch (const std::exception& e) {
+            Log::e(this->logtag, "catch exception: " + string(e.what()));
+        }
     }
 
     Log::i(this->logtag, "The client is deaded!!!!");

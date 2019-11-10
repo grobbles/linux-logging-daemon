@@ -3,19 +3,24 @@
 LogMessageCollector::LogMessageCollector(LogMessageProvider* logMessageProvider) {
     this->logMessageProvider = logMessageProvider;
 
-    this->logMessageCollectorThread = new LogMessageCollectorThread(logMessageProvider);
-
-    this->logMessageCollectorThread->attachObserver(*this);
-
-    thread collectorThread = thread(&LogMessageCollectorThread::runCollectionThread, this->logMessageCollectorThread);
+    thread collectorThread = thread(&LogMessageCollector::run, this);
     collectorThread.detach();
 }
 
 LogMessageCollector::~LogMessageCollector() {
     Log::i(this->logtag, "Destruktor");
-    delete this->logMessageCollectorThread;
 }
 
-void LogMessageCollector::update(set<string> logMessages) {
-    this->notifyObserver(logMessages);
+void LogMessageCollector::run() {
+    while (true) {
+        try {
+            set<string> messages = this->logMessageProvider->getMessages();
+            this->notifyObserver(messages);
+
+            std::this_thread::sleep_for(CYCLE_TIME);
+
+        } catch (const std::exception& e) {
+            Log::e(this->logtag, "catch exception: " + string(e.what()));
+        }
+    }
 }

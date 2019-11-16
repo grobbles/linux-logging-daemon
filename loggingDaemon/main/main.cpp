@@ -39,6 +39,7 @@ string configLogging(const string applicationName, ArgumentParser parser) {
 }
 
 int main(const int argc, const char** argv) {
+
     string logtag = "main";
     string clientLogFileName = DEFAULT_CLIENT_LOG_FILE_NAME;
     string applicationName = DEFAULT_APP_NAME;

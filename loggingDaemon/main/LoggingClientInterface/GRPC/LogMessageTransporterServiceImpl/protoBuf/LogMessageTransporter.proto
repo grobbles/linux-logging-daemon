@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+option java_package = "ex.grpc";
+
+package logmessagetransporter;
+
+service LogMessageTransporter {
+    rpc sendLogMessages (Messages) returns (Acknowledge) {}
+}
+
+// The log message container
+message Messages {
+    int32 size = 1;
+    string logMessages = 2;
+}
+
+// The acknowladge answer 
+message Acknowledge {
+    bool result = 1;
+}

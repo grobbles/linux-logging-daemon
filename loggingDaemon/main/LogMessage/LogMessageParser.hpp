@@ -1,4 +1,5 @@
-#pragma once
+#ifndef LOG_MESSAGE_PARSER_HPP
+#define LOG_MESSAGE_PARSER_HPP
 
 #include <sstream>
 #include <string>
@@ -6,7 +7,7 @@
 
 #include "../Utils/Logging/Logger.hpp"
 #include "../Utils/StringUtils/StringUtils.hpp"
-#include "LogMessageObject.hpp"
+#include "LogMessage.hpp"
 
 using namespace std;
 
@@ -15,8 +16,8 @@ class LogMessageParser {
     const string logtag = "LogMessageParser";
 
   public:
-    static LogMessageObject toObject(string logMessage);
-    static string toString(LogMessageObject logMessage);
+    static LogMessage toObject(string logMessage);
+    static string toString(LogMessage logMessage);
 
   private:
     LogMessageParser();
@@ -25,3 +26,5 @@ class LogMessageParser {
     static unsigned int getPidId(string pidAndThreadId);
     static unsigned int getThreadId(string pidAndThreadId);
 };
+
+#endif // !LOG_MESSAGE_PARSER_HPP

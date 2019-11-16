@@ -10,6 +10,7 @@
 #include "../Utils/ObserverPattern/Subject.hpp"
 
 #include "DomainSocket/DomainSocketClientInterface.hpp"
+#include "GRPC/GrpcClientInterface.hpp"
 #include "LogMessageProvider.hpp"
 
 using namespace std;

@@ -2,6 +2,7 @@
 
 LoggingClientInterface::LoggingClientInterface() {
     this->logMessageProviders.push_back(new DomainSocketClientInterface());
+    this->logMessageProviders.push_back(new GrpcClientInterface());
 }
 
 LoggingClientInterface::~LoggingClientInterface() {

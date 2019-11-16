@@ -6,7 +6,7 @@ LogMessageParser::LogMessageParser() {
 LogMessageParser::~LogMessageParser() {
 }
 
-LogMessageObject LogMessageParser::toObject(const string logMessage) {
+LogMessage LogMessageParser::toObject(const string logMessage) {
     vector<string> LogMessageElememtList = StringUtils::split(logMessage, ']');
 
     vector<string> b;
@@ -25,7 +25,7 @@ LogMessageObject LogMessageParser::toObject(const string logMessage) {
     unsigned int pidId = getPidId(piAndThreadId);
     unsigned int threadId = getThreadId(piAndThreadId);
 
-    return LogMessageObject(date, pidId, threadId, level, tag, message);
+    return LogMessage(date, pidId, threadId, level, tag, message);
 }
 
 unsigned int LogMessageParser::getPidId(string pidAndThreadId) {
@@ -58,7 +58,7 @@ unsigned int LogMessageParser::getThreadId(string pidAndThreadId) {
     return threadId;
 }
 
-string LogMessageParser::toString(LogMessageObject logMessage) {
+string LogMessageParser::toString(LogMessage logMessage) {
     string message;
     message.append("[" + logMessage.date + "]");
     message.append("[" + to_string(logMessage.pidId) + "->" + to_string(logMessage.threadId) + "]");

@@ -15,10 +15,11 @@
 #include "../../../Utils/DataStorage/DataStorage.hpp"
 #include "../../../Utils/Logging/Logger.hpp"
 #include "../../../Utils/ObserverPattern/Observer.hpp"
+#include "../../../Utils/ObserverPattern/Subject.hpp"
 
 using namespace std;
 
-class ClientConnector : public Observer<string> {
+class ClientConnector : public Observer<string>, Subject<string> {
   private:
     string logtag = "ClientConnector";
     vector<thread*> threads;

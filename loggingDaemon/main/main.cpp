@@ -60,26 +60,18 @@ int main(const int argc, const char** argv) {
         KillSignalHandler killSignalHandler;
 
         LoggingClientInterface* loggingClientInterface = new LoggingClientInterface();
-
         LogMessageCollector* logMessageCollector = new LogMessageCollector(loggingClientInterface);
-
         LogFileHandler* logFileHandler = new LogFileHandler(logFilePath, clientLogFileName);
 
-        // serverConnectorThreadManager->attachObserver(*clientConnector);
-
-        // logMessageCollector->attachObserver(*logMessageSorter);
-        // logMessageSorter->attachObserver(*logFileHandler);
+        logMessageCollector->attachObserver(*logFileHandler);
 
         while (!killSignalHandler.isKillSignalReceived()) {
-            std::this_thread::sleep_for(50ms);
+            std::this_thread::sleep_for(100ms);
         }
 
         delete loggingClientInterface;
-
-        delete logFileHandler;
         delete logMessageCollector;
-        // delete clientConnector;
-        // delete serverConnectorThreadManager;
+        delete logFileHandler;
 
         if (!DirectoryUtils::remove(UDS_PATH)) {
             Log::i(logtag, "The path UDS_PATH could not be deleted!");

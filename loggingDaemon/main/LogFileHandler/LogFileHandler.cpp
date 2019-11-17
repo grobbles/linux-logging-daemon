@@ -7,9 +7,12 @@ LogFileHandler::LogFileHandler(string logFilePath, string logFileName) {
     if (!DirectoryUtils::create(logFilePath)) {
         Log::e(this->logtag, "The directory (" + logFilePath + ") could not be create");
     }
+    Log::e(this->logtag, "The directory (" + logFilePath + ") is created.");
 
     string date = createDate();
     string logFileNameResult = date + "_" + logFileName;
+    Log::e(this->logtag, "The log file name is '" + logFilePath + logFileNameResult + "'.");
+
     this->file = ofstream(logFilePath + logFileNameResult);
 }
 
@@ -41,7 +44,7 @@ string LogFileHandler::numberToStringWithFixedLength(const int i, const int leng
     return ostr.str();
 }
 
-void LogFileHandler::update(vector<string> logMessages) {
+void LogFileHandler::update(set<string> logMessages) {
     if (!this->file.is_open()) {
         Log::i(this->logtag, "error the file is not open ");
         return;

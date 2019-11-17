@@ -2,12 +2,12 @@
 
 InitialConnection::InitialConnection(string ipcFile) {
     this->ipcFile = ipcFile;
-    Log::v(this->logtag, "create InitialConnection with " + this->ipcFile);
+    Log::v(this->logtag, "The InitialConnection is created with " + this->ipcFile);
 }
 
 InitialConnection::~InitialConnection() {
-    Log::i(this->logtag, "Destruktor");
     close(this->serverSocket);
+    Log::v(this->logtag, "The InitialConnection is destroyed.");
 }
 
 void InitialConnection::start() {
@@ -33,10 +33,14 @@ void InitialConnection::start() {
 }
 
 void InitialConnection::run() {
+    Log::i(logtag, "The InitialConnection thread is running.");
+
     char* buffer = (char*)malloc(BUF);
 
     while (1) {
         try {
+            Log::i(logtag, "The InitialConnection thread wait of client connection.");
+
             int connectionSocket = accept(serverSocket, (struct sockaddr*)&address, &addrlen);
             if (connectionSocket > 0) {
                 Log::i(this->logtag, "The client is connected with server.");
@@ -52,7 +56,7 @@ void InitialConnection::run() {
 
             Log::i(this->logtag, "The PID received from the client is :  " + clientPid + "  with size: " + std::to_string(size));
 
-            string serverConnectionFile = InitialConnection::CLIENT_UDS_PATH + "/logServerTo" + clientPid + ".uds";
+            string serverConnectionFile = InitialConnection::CLIENT_UDS_PATH + "logServerTo" + clientPid + ".uds";
 
             send(connectionSocket, serverConnectionFile.c_str(), serverConnectionFile.size(), 0);
             Log::i(this->logtag, "The server will create clientConnectionFile :  " + serverConnectionFile);

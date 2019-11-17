@@ -9,12 +9,12 @@
 #include <sys/types.h>
 
 #include "../Utils//ObserverPattern/Observer.hpp"
-#include "../Utils/Logging/Logger.hpp"
 #include "../Utils/DirectoryUtils/DirectoryUtils.hpp"
+#include "../Utils/Logging/Logger.hpp"
 
 using namespace std;
 
-class LogFileHandler : public Observer<vector<string>> {
+class LogFileHandler : public Observer<set<string>> {
   private:
     string logtag = "LogFileHandler";
     string logFilePath;
@@ -26,7 +26,7 @@ class LogFileHandler : public Observer<vector<string>> {
     LogFileHandler(string logFilePath, string logFileName);
     ~LogFileHandler();
 
-    void update(vector<string> logMessages);
+    void update(set<string> logMessages);
 
   private:
     string createDate();

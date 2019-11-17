@@ -3,10 +3,11 @@
 ClientConnectorThread::ClientConnectorThread(string ipcClientConnectionFile) {
     this->ipcClientConnectionFile = ipcClientConnectionFile;
     this->createIpcSocket();
+    Log::v(this->logtag, "The ClientConnectorThread is created.");
 }
 
 ClientConnectorThread::~ClientConnectorThread() {
-    Log::i(this->logtag, "Destruktor");
+    Log::v(this->logtag, "The ClientConnectorThread is destroyed.");
 }
 
 void ClientConnectorThread::createIpcSocket() {
@@ -49,7 +50,6 @@ void ClientConnectorThread::runClientConnectionThread() {
             if (logMessageFromClient.back() != '\n') {
                 logMessageFromClient.push_back('\n');
             }
-
             this->notifyObserver(logMessageFromClient);
 
         } catch (const std::exception& e) {

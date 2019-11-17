@@ -6,8 +6,8 @@
 
 #include "../../Utils//ObserverPattern/Observer.hpp"
 #include "../../Utils//ObserverPattern/Subject.hpp"
-#include "../../Utils/Logging/Logger.hpp"
 #include "../../Utils/DataStorage/DataStorage.hpp"
+#include "../../Utils/Logging/Logger.hpp"
 
 #include "../LogMessageProvider.hpp"
 #include "ClientConnector/ClientConnector.hpp"

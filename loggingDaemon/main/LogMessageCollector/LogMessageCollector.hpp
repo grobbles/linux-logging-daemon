@@ -18,6 +18,7 @@ class LogMessageCollector : public Subject<set<string>>, Observer<set<string>> {
     const string logtag = "LogMessageCollector";
 
     LogMessageProvider* logMessageProvider;
+    thread logMessageCollectorThread;
 
     set<string> messageStorage;
 

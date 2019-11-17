@@ -3,8 +3,8 @@
 LogMessageCollector::LogMessageCollector(LogMessageProvider* logMessageProvider) {
     this->logMessageProvider = logMessageProvider;
 
-    thread collectorThread = thread(&LogMessageCollector::run, this);
-    collectorThread.detach();
+    this->logMessageCollectorThread = thread(&LogMessageCollector::run, this);
+    this->logMessageCollectorThread.detach();
 }
 
 LogMessageCollector::~LogMessageCollector() {
@@ -12,12 +12,14 @@ LogMessageCollector::~LogMessageCollector() {
 }
 
 void LogMessageCollector::run() {
-    while (true) {
+    Log::i(logtag, "The LogMessageCollector thread is running.");
+
+    while (1) {
         try {
+            std::this_thread::sleep_for(500ms);
+
             set<string> messages = this->logMessageProvider->getMessages();
             this->notifyObserver(messages);
-
-            std::this_thread::sleep_for(CYCLE_TIME);
 
         } catch (const std::exception& e) {
             Log::e(this->logtag, "catch exception: " + string(e.what()));

@@ -45,7 +45,8 @@ This is a logging server for Linux.. The clients can be connected to the server 
 
     # Build and install gRPC
     make -j `nproc` PROTOC=/opt/protobuf/bin/protoc
-    su
+    sudo make prefix=/opt/grpc install
+```
 
 ## Start Development
 

@@ -1,4 +1,5 @@
-#pragma once
+#ifndef LOG_FILE_HANDLER_HPP
+#define LOG_FILE_HANDLER_HPP
 
 #include <bits/stdc++.h>
 #include <iostream>
@@ -32,3 +33,5 @@ class LogFileHandler : public Observer<set<string>> {
     string createDate();
     string numberToStringWithFixedLength(const int i, const int length);
 };
+
+#endif // !LOG_FILE_HANDLER_HPP

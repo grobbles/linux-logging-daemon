@@ -1,13 +1,6 @@
 #include "LogMessageTransporterServiceImpl.hpp"
 
-// LogMessageTransporterServiceImpl::LogMessageTransporterServiceImpl() {
-// }
-
-// LogMessageTransporterServiceImpl::~LogMessageTransporterServiceImpl() {
-// }
-
-// set<string> LogMessageTransporterServiceImpl::getMessages() {
-//     set<string> result;
-
-//     return result;
-// }
+set<string> LogMessageTransporterServiceImplementation::getMessages() {
+    set<string> logMessages = this->logMessageStorages->readMessages();
+    return logMessages;
+};

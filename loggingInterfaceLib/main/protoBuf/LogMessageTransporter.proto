@@ -5,16 +5,17 @@ option java_package = "ex.grpc";
 package logmessagetransporter;
 
 service LogMessageTransporter {
-    rpc sendLogMessages (Messages) returns (Acknowledge) {}
+    rpc sendLogMessages(MessagesRequest) returns (AcknowledgeReply) {
+    }
 }
 
 // The log message container
-message Messages {
+message MessagesRequest {
     int32 size = 1;
-    string logMessages = 2;
+    repeated string logMessages = 2;
 }
 
-// The acknowladge answer 
-message Acknowledge {
+// The acknowladge answer
+message AcknowledgeReply {
     bool result = 1;
 }

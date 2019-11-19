@@ -16,7 +16,7 @@
 #define UDS_FILE "/tmp/loggingServer/serverConnection.uds" // UDS = unix domain socket
 #define UDS_PATH "/tmp/loggingServer/"                     // UDS = unix domain socket
 #define DEFAULT_APP_NAME "LoggingServer"
-#define DEFAULT_LOG_PATH "/var/log/LoggingServer/"
+#define DEFAULT_LOG_PATH "/home/uwe/LoggingServer/"
 #define DEFAULT_CLIENT_LOG_FILE_NAME "Clients.log"
 
 using namespace std;

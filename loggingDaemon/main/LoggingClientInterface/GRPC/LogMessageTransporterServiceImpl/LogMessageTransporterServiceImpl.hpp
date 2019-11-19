@@ -9,6 +9,7 @@
 #include "../../../Utils/DataStorage/DataStorage.hpp"
 #include "../../../Utils/Logging/Logger.hpp"
 
+#include "../../../Utils/DataStorage/DataStorage.hpp"
 #include "../../LogMessageProvider.hpp"
 
 #include <grpcpp/grpcpp.h>
@@ -17,35 +18,69 @@ using grpc::ServerBuilder;
 using grpc::ServerContext;
 using grpc::Status;
 
-#include "protoBuf/LogMessageTransporter.grpc.pb.h"
-using logmessagetransporter::Acknowledge;
+#include "LogMessageTransporter.grpc.pb.h"
+using logmessagetransporter::AcknowledgeReply;
 using logmessagetransporter::LogMessageTransporter;
-using logmessagetransporter::Messages;
+using logmessagetransporter::MessagesRequest;
 
 using namespace std;
 
-class LogMessageTransporterServiceImpl : public LogMessageProvider, public LogMessageTransporter::Service {
-  private:
+class LogMessageTransporterServiceImplementation final : public LogMessageTransporter::Service {
+
     const string logtag = "LogMessageTransporterServiceImpl";
 
-  public:
-    LogMessageTransporterServiceImpl(){};
-    ~LogMessageTransporterServiceImpl(){};
-
-    Status sendLogMessages(ServerContext* context, const Messages* request, Acknowledge* reply) override {
-        request->logmessages();
-        // for (int index = 0; index < request->logmessages_size(); index++) {
-        //     cout << " receive : " << request->logmessages(index) << std::endl;
-        // }
+    DataStorage<string>* logMessageStorages;
+    Status sendLogMessages(ServerContext* context, const MessagesRequest* request, AcknowledgeReply* reply) override {
+        request->logmessages_size();
+        for (int index = 0; index < request->logmessages_size(); index++) {
+            Log::i(logtag, " receive : " + request->logmessages(index));
+        }
 
         reply->set_result(true);
 
-        return grpc::Status::OK;
+        return Status::OK;
     }
 
-    // set<string> getMessages();
+  public:
+    LogMessageTransporterServiceImplementation() {
+        Log::i(logtag, "The LogMessageTransporterServiceImplementation constructor is called.");
 
-  private:
+        this->logMessageStorages = new DataStorage<string>();
+
+        Log::i(logtag, "The LogMessageTransporterServiceImplementation is created.");
+    }
+
+    ~LogMessageTransporterServiceImplementation() {
+        Log::i(logtag, "The LogMessageTransporterServiceImplementation distructor is called.");
+        Log::i(logtag, "The LogMessageTransporterServiceImplementation is destroyed.");
+    };
+
+    set<string> getMessages();
 };
+
+// class LogMessageTransporterServiceImpl final : LogMessageTransporter::Service {
+//   private:
+//     const string logtag = "LogMessageTransporterServiceImpl";
+//     DataStorage<string>* logMessageStorages;
+
+//   public:
+//     LogMessageTransporterServiceImpl() {
+//         this->logMessageStorages = new DataStorage<string>();
+//     }
+
+//     ~LogMessageTransporterServiceImpl(){};
+
+//     grpc::Status sendLogMessages(ServerContext* context, const MessagesRequest* request, AcknowledgeReply* response) {
+//         for (auto message : request->logmessages()) {
+//             this->logMessageStorages->update(message);
+//         }
+
+//         response->set_result(true);
+
+//         return grpc::Status::OK;
+//     };
+
+//     set<string> getMessages();
+// };
 
 #endif // LOG_MESSAGE_TRANSPORTER_SERVICE_IMPL_H

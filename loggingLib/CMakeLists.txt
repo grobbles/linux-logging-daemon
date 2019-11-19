@@ -9,5 +9,5 @@ message("PROJECT_DIRECTORY = " ${PROJECT_DIRECTORY})
 set(CMAKE_INSTALL_PREFIX ${PROJECT_DIRECTORY})
 message("CMAKE_INSTALL_PREFIX = " ${CMAKE_INSTALL_PREFIX})
 
-add_subdirectory(src)
-add_subdirectory(tests)
+add_subdirectory(main)
+# add_subdirectory(tests)

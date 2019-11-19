@@ -55,38 +55,38 @@ struct TableStruct_LogMessageTransporter_2eproto {
 };
 extern const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_LogMessageTransporter_2eproto;
 namespace logmessagetransporter {
-class Acknowledge;
-class AcknowledgeDefaultTypeInternal;
-extern AcknowledgeDefaultTypeInternal _Acknowledge_default_instance_;
-class Messages;
-class MessagesDefaultTypeInternal;
-extern MessagesDefaultTypeInternal _Messages_default_instance_;
+class AcknowledgeReply;
+class AcknowledgeReplyDefaultTypeInternal;
+extern AcknowledgeReplyDefaultTypeInternal _AcknowledgeReply_default_instance_;
+class MessagesRequest;
+class MessagesRequestDefaultTypeInternal;
+extern MessagesRequestDefaultTypeInternal _MessagesRequest_default_instance_;
 }  // namespace logmessagetransporter
 PROTOBUF_NAMESPACE_OPEN
-template<> ::logmessagetransporter::Acknowledge* Arena::CreateMaybeMessage<::logmessagetransporter::Acknowledge>(Arena*);
-template<> ::logmessagetransporter::Messages* Arena::CreateMaybeMessage<::logmessagetransporter::Messages>(Arena*);
+template<> ::logmessagetransporter::AcknowledgeReply* Arena::CreateMaybeMessage<::logmessagetransporter::AcknowledgeReply>(Arena*);
+template<> ::logmessagetransporter::MessagesRequest* Arena::CreateMaybeMessage<::logmessagetransporter::MessagesRequest>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
 namespace logmessagetransporter {
 
 // ===================================================================
 
-class Messages :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:logmessagetransporter.Messages) */ {
+class MessagesRequest :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:logmessagetransporter.MessagesRequest) */ {
  public:
-  Messages();
-  virtual ~Messages();
+  MessagesRequest();
+  virtual ~MessagesRequest();
 
-  Messages(const Messages& from);
-  Messages(Messages&& from) noexcept
-    : Messages() {
+  MessagesRequest(const MessagesRequest& from);
+  MessagesRequest(MessagesRequest&& from) noexcept
+    : MessagesRequest() {
     *this = ::std::move(from);
   }
 
-  inline Messages& operator=(const Messages& from) {
+  inline MessagesRequest& operator=(const MessagesRequest& from) {
     CopyFrom(from);
     return *this;
   }
-  inline Messages& operator=(Messages&& from) noexcept {
+  inline MessagesRequest& operator=(MessagesRequest&& from) noexcept {
     if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
       if (this != &from) InternalSwap(&from);
     } else {
@@ -104,34 +104,34 @@ class Messages :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return GetMetadataStatic().reflection;
   }
-  static const Messages& default_instance();
+  static const MessagesRequest& default_instance();
 
   static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
-  static inline const Messages* internal_default_instance() {
-    return reinterpret_cast<const Messages*>(
-               &_Messages_default_instance_);
+  static inline const MessagesRequest* internal_default_instance() {
+    return reinterpret_cast<const MessagesRequest*>(
+               &_MessagesRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
     0;
 
-  void Swap(Messages* other);
-  friend void swap(Messages& a, Messages& b) {
+  void Swap(MessagesRequest* other);
+  friend void swap(MessagesRequest& a, MessagesRequest& b) {
     a.Swap(&b);
   }
 
   // implements Message ----------------------------------------------
 
-  inline Messages* New() const final {
-    return CreateMaybeMessage<Messages>(nullptr);
+  inline MessagesRequest* New() const final {
+    return CreateMaybeMessage<MessagesRequest>(nullptr);
   }
 
-  Messages* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<Messages>(arena);
+  MessagesRequest* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<MessagesRequest>(arena);
   }
   void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
   void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const Messages& from);
-  void MergeFrom(const Messages& from);
+  void CopyFrom(const MessagesRequest& from);
+  void MergeFrom(const MessagesRequest& from);
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
@@ -152,10 +152,10 @@ class Messages :
   inline void SharedCtor();
   inline void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(Messages* other);
+  void InternalSwap(MessagesRequest* other);
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "logmessagetransporter.Messages";
+    return "logmessagetransporter.MessagesRequest";
   }
   private:
   inline ::PROTOBUF_NAMESPACE_ID::Arena* GetArenaNoVirtual() const {
@@ -179,17 +179,23 @@ class Messages :
 
   // accessors -------------------------------------------------------
 
-  // string logMessages = 2;
+  // repeated string logMessages = 2;
+  int logmessages_size() const;
   void clear_logmessages();
   static const int kLogMessagesFieldNumber = 2;
-  const std::string& logmessages() const;
-  void set_logmessages(const std::string& value);
-  void set_logmessages(std::string&& value);
-  void set_logmessages(const char* value);
-  void set_logmessages(const char* value, size_t size);
-  std::string* mutable_logmessages();
-  std::string* release_logmessages();
-  void set_allocated_logmessages(std::string* logmessages);
+  const std::string& logmessages(int index) const;
+  std::string* mutable_logmessages(int index);
+  void set_logmessages(int index, const std::string& value);
+  void set_logmessages(int index, std::string&& value);
+  void set_logmessages(int index, const char* value);
+  void set_logmessages(int index, const char* value, size_t size);
+  std::string* add_logmessages();
+  void add_logmessages(const std::string& value);
+  void add_logmessages(std::string&& value);
+  void add_logmessages(const char* value);
+  void add_logmessages(const char* value, size_t size);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>& logmessages() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>* mutable_logmessages();
 
   // int32 size = 1;
   void clear_size();
@@ -197,35 +203,35 @@ class Messages :
   ::PROTOBUF_NAMESPACE_ID::int32 size() const;
   void set_size(::PROTOBUF_NAMESPACE_ID::int32 value);
 
-  // @@protoc_insertion_point(class_scope:logmessagetransporter.Messages)
+  // @@protoc_insertion_point(class_scope:logmessagetransporter.MessagesRequest)
  private:
   class HasBitSetters;
 
   ::PROTOBUF_NAMESPACE_ID::internal::InternalMetadataWithArena _internal_metadata_;
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr logmessages_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string> logmessages_;
   ::PROTOBUF_NAMESPACE_ID::int32 size_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_LogMessageTransporter_2eproto;
 };
 // -------------------------------------------------------------------
 
-class Acknowledge :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:logmessagetransporter.Acknowledge) */ {
+class AcknowledgeReply :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:logmessagetransporter.AcknowledgeReply) */ {
  public:
-  Acknowledge();
-  virtual ~Acknowledge();
+  AcknowledgeReply();
+  virtual ~AcknowledgeReply();
 
-  Acknowledge(const Acknowledge& from);
-  Acknowledge(Acknowledge&& from) noexcept
-    : Acknowledge() {
+  AcknowledgeReply(const AcknowledgeReply& from);
+  AcknowledgeReply(AcknowledgeReply&& from) noexcept
+    : AcknowledgeReply() {
     *this = ::std::move(from);
   }
 
-  inline Acknowledge& operator=(const Acknowledge& from) {
+  inline AcknowledgeReply& operator=(const AcknowledgeReply& from) {
     CopyFrom(from);
     return *this;
   }
-  inline Acknowledge& operator=(Acknowledge&& from) noexcept {
+  inline AcknowledgeReply& operator=(AcknowledgeReply&& from) noexcept {
     if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
       if (this != &from) InternalSwap(&from);
     } else {
@@ -243,34 +249,34 @@ class Acknowledge :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return GetMetadataStatic().reflection;
   }
-  static const Acknowledge& default_instance();
+  static const AcknowledgeReply& default_instance();
 
   static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
-  static inline const Acknowledge* internal_default_instance() {
-    return reinterpret_cast<const Acknowledge*>(
-               &_Acknowledge_default_instance_);
+  static inline const AcknowledgeReply* internal_default_instance() {
+    return reinterpret_cast<const AcknowledgeReply*>(
+               &_AcknowledgeReply_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
     1;
 
-  void Swap(Acknowledge* other);
-  friend void swap(Acknowledge& a, Acknowledge& b) {
+  void Swap(AcknowledgeReply* other);
+  friend void swap(AcknowledgeReply& a, AcknowledgeReply& b) {
     a.Swap(&b);
   }
 
   // implements Message ----------------------------------------------
 
-  inline Acknowledge* New() const final {
-    return CreateMaybeMessage<Acknowledge>(nullptr);
+  inline AcknowledgeReply* New() const final {
+    return CreateMaybeMessage<AcknowledgeReply>(nullptr);
   }
 
-  Acknowledge* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<Acknowledge>(arena);
+  AcknowledgeReply* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<AcknowledgeReply>(arena);
   }
   void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
   void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const Acknowledge& from);
-  void MergeFrom(const Acknowledge& from);
+  void CopyFrom(const AcknowledgeReply& from);
+  void MergeFrom(const AcknowledgeReply& from);
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
@@ -291,10 +297,10 @@ class Acknowledge :
   inline void SharedCtor();
   inline void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(Acknowledge* other);
+  void InternalSwap(AcknowledgeReply* other);
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "logmessagetransporter.Acknowledge";
+    return "logmessagetransporter.AcknowledgeReply";
   }
   private:
   inline ::PROTOBUF_NAMESPACE_ID::Arena* GetArenaNoVirtual() const {
@@ -324,7 +330,7 @@ class Acknowledge :
   bool result() const;
   void set_result(bool value);
 
-  // @@protoc_insertion_point(class_scope:logmessagetransporter.Acknowledge)
+  // @@protoc_insertion_point(class_scope:logmessagetransporter.AcknowledgeReply)
  private:
   class HasBitSetters;
 
@@ -342,89 +348,103 @@ class Acknowledge :
   #pragma GCC diagnostic push
   #pragma GCC diagnostic ignored "-Wstrict-aliasing"
 #endif  // __GNUC__
-// Messages
+// MessagesRequest
 
 // int32 size = 1;
-inline void Messages::clear_size() {
+inline void MessagesRequest::clear_size() {
   size_ = 0;
 }
-inline ::PROTOBUF_NAMESPACE_ID::int32 Messages::size() const {
-  // @@protoc_insertion_point(field_get:logmessagetransporter.Messages.size)
+inline ::PROTOBUF_NAMESPACE_ID::int32 MessagesRequest::size() const {
+  // @@protoc_insertion_point(field_get:logmessagetransporter.MessagesRequest.size)
   return size_;
 }
-inline void Messages::set_size(::PROTOBUF_NAMESPACE_ID::int32 value) {
+inline void MessagesRequest::set_size(::PROTOBUF_NAMESPACE_ID::int32 value) {
   
   size_ = value;
-  // @@protoc_insertion_point(field_set:logmessagetransporter.Messages.size)
+  // @@protoc_insertion_point(field_set:logmessagetransporter.MessagesRequest.size)
 }
 
-// string logMessages = 2;
-inline void Messages::clear_logmessages() {
-  logmessages_.ClearToEmptyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+// repeated string logMessages = 2;
+inline int MessagesRequest::logmessages_size() const {
+  return logmessages_.size();
 }
-inline const std::string& Messages::logmessages() const {
-  // @@protoc_insertion_point(field_get:logmessagetransporter.Messages.logMessages)
-  return logmessages_.GetNoArena();
+inline void MessagesRequest::clear_logmessages() {
+  logmessages_.Clear();
 }
-inline void Messages::set_logmessages(const std::string& value) {
-  
-  logmessages_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:logmessagetransporter.Messages.logMessages)
+inline const std::string& MessagesRequest::logmessages(int index) const {
+  // @@protoc_insertion_point(field_get:logmessagetransporter.MessagesRequest.logMessages)
+  return logmessages_.Get(index);
 }
-inline void Messages::set_logmessages(std::string&& value) {
-  
-  logmessages_.SetNoArena(
-    &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:logmessagetransporter.Messages.logMessages)
+inline std::string* MessagesRequest::mutable_logmessages(int index) {
+  // @@protoc_insertion_point(field_mutable:logmessagetransporter.MessagesRequest.logMessages)
+  return logmessages_.Mutable(index);
 }
-inline void Messages::set_logmessages(const char* value) {
+inline void MessagesRequest::set_logmessages(int index, const std::string& value) {
+  // @@protoc_insertion_point(field_set:logmessagetransporter.MessagesRequest.logMessages)
+  logmessages_.Mutable(index)->assign(value);
+}
+inline void MessagesRequest::set_logmessages(int index, std::string&& value) {
+  // @@protoc_insertion_point(field_set:logmessagetransporter.MessagesRequest.logMessages)
+  logmessages_.Mutable(index)->assign(std::move(value));
+}
+inline void MessagesRequest::set_logmessages(int index, const char* value) {
   GOOGLE_DCHECK(value != nullptr);
-  
-  logmessages_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:logmessagetransporter.Messages.logMessages)
+  logmessages_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set_char:logmessagetransporter.MessagesRequest.logMessages)
 }
-inline void Messages::set_logmessages(const char* value, size_t size) {
-  
-  logmessages_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:logmessagetransporter.Messages.logMessages)
+inline void MessagesRequest::set_logmessages(int index, const char* value, size_t size) {
+  logmessages_.Mutable(index)->assign(
+    reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:logmessagetransporter.MessagesRequest.logMessages)
 }
-inline std::string* Messages::mutable_logmessages() {
-  
-  // @@protoc_insertion_point(field_mutable:logmessagetransporter.Messages.logMessages)
-  return logmessages_.MutableNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+inline std::string* MessagesRequest::add_logmessages() {
+  // @@protoc_insertion_point(field_add_mutable:logmessagetransporter.MessagesRequest.logMessages)
+  return logmessages_.Add();
 }
-inline std::string* Messages::release_logmessages() {
-  // @@protoc_insertion_point(field_release:logmessagetransporter.Messages.logMessages)
-  
-  return logmessages_.ReleaseNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+inline void MessagesRequest::add_logmessages(const std::string& value) {
+  logmessages_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add:logmessagetransporter.MessagesRequest.logMessages)
 }
-inline void Messages::set_allocated_logmessages(std::string* logmessages) {
-  if (logmessages != nullptr) {
-    
-  } else {
-    
-  }
-  logmessages_.SetAllocatedNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), logmessages);
-  // @@protoc_insertion_point(field_set_allocated:logmessagetransporter.Messages.logMessages)
+inline void MessagesRequest::add_logmessages(std::string&& value) {
+  logmessages_.Add(std::move(value));
+  // @@protoc_insertion_point(field_add:logmessagetransporter.MessagesRequest.logMessages)
+}
+inline void MessagesRequest::add_logmessages(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  logmessages_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add_char:logmessagetransporter.MessagesRequest.logMessages)
+}
+inline void MessagesRequest::add_logmessages(const char* value, size_t size) {
+  logmessages_.Add()->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_add_pointer:logmessagetransporter.MessagesRequest.logMessages)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>&
+MessagesRequest::logmessages() const {
+  // @@protoc_insertion_point(field_list:logmessagetransporter.MessagesRequest.logMessages)
+  return logmessages_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>*
+MessagesRequest::mutable_logmessages() {
+  // @@protoc_insertion_point(field_mutable_list:logmessagetransporter.MessagesRequest.logMessages)
+  return &logmessages_;
 }
 
 // -------------------------------------------------------------------
 
-// Acknowledge
+// AcknowledgeReply
 
 // bool result = 1;
-inline void Acknowledge::clear_result() {
+inline void AcknowledgeReply::clear_result() {
   result_ = false;
 }
-inline bool Acknowledge::result() const {
-  // @@protoc_insertion_point(field_get:logmessagetransporter.Acknowledge.result)
+inline bool AcknowledgeReply::result() const {
+  // @@protoc_insertion_point(field_get:logmessagetransporter.AcknowledgeReply.result)
   return result_;
 }
-inline void Acknowledge::set_result(bool value) {
+inline void AcknowledgeReply::set_result(bool value) {
   
   result_ = value;
-  // @@protoc_insertion_point(field_set:logmessagetransporter.Acknowledge.result)
+  // @@protoc_insertion_point(field_set:logmessagetransporter.AcknowledgeReply.result)
 }
 
 #ifdef __GNUC__

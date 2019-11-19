@@ -1,4 +1,4 @@
-include_directories(${CMAKE_SOURCE_DIR}/loggingLib/src)
+include_directories(${CMAKE_SOURCE_DIR}/loggingLib/main)
 
 file(GLOB SOURCES "*.cxx" "*.cpp" "*/*.cpp" "*.h" "*.hpp")
 file(GLOB HEADER "*.h" "*.hpp")

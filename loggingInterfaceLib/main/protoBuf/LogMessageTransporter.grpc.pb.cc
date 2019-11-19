@@ -32,46 +32,46 @@ LogMessageTransporter::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterfac
   : channel_(channel), rpcmethod_sendLogMessages_(LogMessageTransporter_method_names[0], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   {}
 
-::grpc::Status LogMessageTransporter::Stub::sendLogMessages(::grpc::ClientContext* context, const ::logmessagetransporter::Messages& request, ::logmessagetransporter::Acknowledge* response) {
+::grpc::Status LogMessageTransporter::Stub::sendLogMessages(::grpc::ClientContext* context, const ::logmessagetransporter::MessagesRequest& request, ::logmessagetransporter::AcknowledgeReply* response) {
   return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_sendLogMessages_, context, request, response);
 }
 
-void LogMessageTransporter::Stub::experimental_async::sendLogMessages(::grpc::ClientContext* context, const ::logmessagetransporter::Messages* request, ::logmessagetransporter::Acknowledge* response, std::function<void(::grpc::Status)> f) {
+void LogMessageTransporter::Stub::experimental_async::sendLogMessages(::grpc::ClientContext* context, const ::logmessagetransporter::MessagesRequest* request, ::logmessagetransporter::AcknowledgeReply* response, std::function<void(::grpc::Status)> f) {
   ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_sendLogMessages_, context, request, response, std::move(f));
 }
 
-void LogMessageTransporter::Stub::experimental_async::sendLogMessages(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::logmessagetransporter::Acknowledge* response, std::function<void(::grpc::Status)> f) {
+void LogMessageTransporter::Stub::experimental_async::sendLogMessages(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::logmessagetransporter::AcknowledgeReply* response, std::function<void(::grpc::Status)> f) {
   ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_sendLogMessages_, context, request, response, std::move(f));
 }
 
-void LogMessageTransporter::Stub::experimental_async::sendLogMessages(::grpc::ClientContext* context, const ::logmessagetransporter::Messages* request, ::logmessagetransporter::Acknowledge* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+void LogMessageTransporter::Stub::experimental_async::sendLogMessages(::grpc::ClientContext* context, const ::logmessagetransporter::MessagesRequest* request, ::logmessagetransporter::AcknowledgeReply* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
   ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_sendLogMessages_, context, request, response, reactor);
 }
 
-void LogMessageTransporter::Stub::experimental_async::sendLogMessages(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::logmessagetransporter::Acknowledge* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+void LogMessageTransporter::Stub::experimental_async::sendLogMessages(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::logmessagetransporter::AcknowledgeReply* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
   ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_sendLogMessages_, context, request, response, reactor);
 }
 
-::grpc::ClientAsyncResponseReader< ::logmessagetransporter::Acknowledge>* LogMessageTransporter::Stub::AsyncsendLogMessagesRaw(::grpc::ClientContext* context, const ::logmessagetransporter::Messages& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::logmessagetransporter::Acknowledge>::Create(channel_.get(), cq, rpcmethod_sendLogMessages_, context, request, true);
+::grpc::ClientAsyncResponseReader< ::logmessagetransporter::AcknowledgeReply>* LogMessageTransporter::Stub::AsyncsendLogMessagesRaw(::grpc::ClientContext* context, const ::logmessagetransporter::MessagesRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::logmessagetransporter::AcknowledgeReply>::Create(channel_.get(), cq, rpcmethod_sendLogMessages_, context, request, true);
 }
 
-::grpc::ClientAsyncResponseReader< ::logmessagetransporter::Acknowledge>* LogMessageTransporter::Stub::PrepareAsyncsendLogMessagesRaw(::grpc::ClientContext* context, const ::logmessagetransporter::Messages& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::logmessagetransporter::Acknowledge>::Create(channel_.get(), cq, rpcmethod_sendLogMessages_, context, request, false);
+::grpc::ClientAsyncResponseReader< ::logmessagetransporter::AcknowledgeReply>* LogMessageTransporter::Stub::PrepareAsyncsendLogMessagesRaw(::grpc::ClientContext* context, const ::logmessagetransporter::MessagesRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::logmessagetransporter::AcknowledgeReply>::Create(channel_.get(), cq, rpcmethod_sendLogMessages_, context, request, false);
 }
 
 LogMessageTransporter::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       LogMessageTransporter_method_names[0],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< LogMessageTransporter::Service, ::logmessagetransporter::Messages, ::logmessagetransporter::Acknowledge>(
+      new ::grpc::internal::RpcMethodHandler< LogMessageTransporter::Service, ::logmessagetransporter::MessagesRequest, ::logmessagetransporter::AcknowledgeReply>(
           std::mem_fn(&LogMessageTransporter::Service::sendLogMessages), this)));
 }
 
 LogMessageTransporter::Service::~Service() {
 }
 
-::grpc::Status LogMessageTransporter::Service::sendLogMessages(::grpc::ServerContext* context, const ::logmessagetransporter::Messages* request, ::logmessagetransporter::Acknowledge* response) {
+::grpc::Status LogMessageTransporter::Service::sendLogMessages(::grpc::ServerContext* context, const ::logmessagetransporter::MessagesRequest* request, ::logmessagetransporter::AcknowledgeReply* response) {
   (void) context;
   (void) request;
   (void) response;

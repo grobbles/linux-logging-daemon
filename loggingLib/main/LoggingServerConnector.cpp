@@ -8,6 +8,9 @@ LoggingServerConnector::LoggingServerConnector() {
 
     this->createSocket();
     this->connectServer(this->ipcServerConnetionFile);
+    std::string address("0.0.0.0:3030");
+
+    this->client = new LogMessageTransporterClientImplementation(grpc::CreateChannel(address, grpc::InsecureChannelCredentials()));
 }
 
 LoggingServerConnector::~LoggingServerConnector() {
@@ -27,14 +30,14 @@ void LoggingServerConnector::createSocket() {
 }
 
 void LoggingServerConnector::connectServer(string ipcSocketFile) {
-    std::cout << "Try to conneted with the server over file " + ipcSocketFile << std::endl;
+    std::cout << "Try to connected with the server over file " + ipcSocketFile << std::endl;
     struct sockaddr_un address;
 
     address.sun_family = AF_LOCAL;
     strcpy(address.sun_path, ipcSocketFile.c_str());
 
     if (connect(this->create_socket, (struct sockaddr*)&address, sizeof(address)) == 0) {
-        std::cout << "The socket is conneted with the server." << std::endl;
+        std::cout << "The socket is connected with the server." << std::endl;
     }
 }
 
@@ -61,6 +64,10 @@ void LoggingServerConnector::receiveIpcServerConnetionFileFromServer() {
 }
 
 void LoggingServerConnector::sendLogString(string loggingMessage) {
+    vector<string> mes;
+    mes.push_back("Test Message : " + loggingMessage);
+
+    bool response = this->client->sendLogMessages(mes);
     // this->transferMutex.lock();
     send(create_socket, loggingMessage.c_str(), loggingMessage.size(), 0);
     // std::cout << "send message to server : " + loggingMessage << std::endl;

@@ -10,12 +10,16 @@
 #include "../../Utils/Logging/Logger.hpp"
 
 #include "../LogMessageProvider.hpp"
+#include "LogMessageTransporterServiceImpl/LogMessageTransporterServiceImpl.hpp"
 
 using namespace std;
 
 class GrpcClientInterface : public LogMessageProvider {
   private:
     const string logtag = "GrpcClientInterface";
+
+    // LogMessageTransporterServiceImpl* serviceImpl;
+    LogMessageTransporterServiceImplementation* serviceImpl;
 
   public:
     GrpcClientInterface();

@@ -46,43 +46,43 @@ class LogMessageTransporter final {
   class StubInterface {
    public:
     virtual ~StubInterface() {}
-    virtual ::grpc::Status sendLogMessages(::grpc::ClientContext* context, const ::logmessagetransporter::Messages& request, ::logmessagetransporter::Acknowledge* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::logmessagetransporter::Acknowledge>> AsyncsendLogMessages(::grpc::ClientContext* context, const ::logmessagetransporter::Messages& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::logmessagetransporter::Acknowledge>>(AsyncsendLogMessagesRaw(context, request, cq));
+    virtual ::grpc::Status sendLogMessages(::grpc::ClientContext* context, const ::logmessagetransporter::MessagesRequest& request, ::logmessagetransporter::AcknowledgeReply* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::logmessagetransporter::AcknowledgeReply>> AsyncsendLogMessages(::grpc::ClientContext* context, const ::logmessagetransporter::MessagesRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::logmessagetransporter::AcknowledgeReply>>(AsyncsendLogMessagesRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::logmessagetransporter::Acknowledge>> PrepareAsyncsendLogMessages(::grpc::ClientContext* context, const ::logmessagetransporter::Messages& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::logmessagetransporter::Acknowledge>>(PrepareAsyncsendLogMessagesRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::logmessagetransporter::AcknowledgeReply>> PrepareAsyncsendLogMessages(::grpc::ClientContext* context, const ::logmessagetransporter::MessagesRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::logmessagetransporter::AcknowledgeReply>>(PrepareAsyncsendLogMessagesRaw(context, request, cq));
     }
     class experimental_async_interface {
      public:
       virtual ~experimental_async_interface() {}
-      virtual void sendLogMessages(::grpc::ClientContext* context, const ::logmessagetransporter::Messages* request, ::logmessagetransporter::Acknowledge* response, std::function<void(::grpc::Status)>) = 0;
-      virtual void sendLogMessages(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::logmessagetransporter::Acknowledge* response, std::function<void(::grpc::Status)>) = 0;
-      virtual void sendLogMessages(::grpc::ClientContext* context, const ::logmessagetransporter::Messages* request, ::logmessagetransporter::Acknowledge* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      virtual void sendLogMessages(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::logmessagetransporter::Acknowledge* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      virtual void sendLogMessages(::grpc::ClientContext* context, const ::logmessagetransporter::MessagesRequest* request, ::logmessagetransporter::AcknowledgeReply* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void sendLogMessages(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::logmessagetransporter::AcknowledgeReply* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void sendLogMessages(::grpc::ClientContext* context, const ::logmessagetransporter::MessagesRequest* request, ::logmessagetransporter::AcknowledgeReply* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      virtual void sendLogMessages(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::logmessagetransporter::AcknowledgeReply* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
     };
     virtual class experimental_async_interface* experimental_async() { return nullptr; }
   private:
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::logmessagetransporter::Acknowledge>* AsyncsendLogMessagesRaw(::grpc::ClientContext* context, const ::logmessagetransporter::Messages& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::logmessagetransporter::Acknowledge>* PrepareAsyncsendLogMessagesRaw(::grpc::ClientContext* context, const ::logmessagetransporter::Messages& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::logmessagetransporter::AcknowledgeReply>* AsyncsendLogMessagesRaw(::grpc::ClientContext* context, const ::logmessagetransporter::MessagesRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::logmessagetransporter::AcknowledgeReply>* PrepareAsyncsendLogMessagesRaw(::grpc::ClientContext* context, const ::logmessagetransporter::MessagesRequest& request, ::grpc::CompletionQueue* cq) = 0;
   };
   class Stub final : public StubInterface {
    public:
     Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel);
-    ::grpc::Status sendLogMessages(::grpc::ClientContext* context, const ::logmessagetransporter::Messages& request, ::logmessagetransporter::Acknowledge* response) override;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::logmessagetransporter::Acknowledge>> AsyncsendLogMessages(::grpc::ClientContext* context, const ::logmessagetransporter::Messages& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::logmessagetransporter::Acknowledge>>(AsyncsendLogMessagesRaw(context, request, cq));
+    ::grpc::Status sendLogMessages(::grpc::ClientContext* context, const ::logmessagetransporter::MessagesRequest& request, ::logmessagetransporter::AcknowledgeReply* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::logmessagetransporter::AcknowledgeReply>> AsyncsendLogMessages(::grpc::ClientContext* context, const ::logmessagetransporter::MessagesRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::logmessagetransporter::AcknowledgeReply>>(AsyncsendLogMessagesRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::logmessagetransporter::Acknowledge>> PrepareAsyncsendLogMessages(::grpc::ClientContext* context, const ::logmessagetransporter::Messages& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::logmessagetransporter::Acknowledge>>(PrepareAsyncsendLogMessagesRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::logmessagetransporter::AcknowledgeReply>> PrepareAsyncsendLogMessages(::grpc::ClientContext* context, const ::logmessagetransporter::MessagesRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::logmessagetransporter::AcknowledgeReply>>(PrepareAsyncsendLogMessagesRaw(context, request, cq));
     }
     class experimental_async final :
       public StubInterface::experimental_async_interface {
      public:
-      void sendLogMessages(::grpc::ClientContext* context, const ::logmessagetransporter::Messages* request, ::logmessagetransporter::Acknowledge* response, std::function<void(::grpc::Status)>) override;
-      void sendLogMessages(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::logmessagetransporter::Acknowledge* response, std::function<void(::grpc::Status)>) override;
-      void sendLogMessages(::grpc::ClientContext* context, const ::logmessagetransporter::Messages* request, ::logmessagetransporter::Acknowledge* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      void sendLogMessages(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::logmessagetransporter::Acknowledge* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      void sendLogMessages(::grpc::ClientContext* context, const ::logmessagetransporter::MessagesRequest* request, ::logmessagetransporter::AcknowledgeReply* response, std::function<void(::grpc::Status)>) override;
+      void sendLogMessages(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::logmessagetransporter::AcknowledgeReply* response, std::function<void(::grpc::Status)>) override;
+      void sendLogMessages(::grpc::ClientContext* context, const ::logmessagetransporter::MessagesRequest* request, ::logmessagetransporter::AcknowledgeReply* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      void sendLogMessages(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::logmessagetransporter::AcknowledgeReply* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
      private:
       friend class Stub;
       explicit experimental_async(Stub* stub): stub_(stub) { }
@@ -94,8 +94,8 @@ class LogMessageTransporter final {
    private:
     std::shared_ptr< ::grpc::ChannelInterface> channel_;
     class experimental_async async_stub_{this};
-    ::grpc::ClientAsyncResponseReader< ::logmessagetransporter::Acknowledge>* AsyncsendLogMessagesRaw(::grpc::ClientContext* context, const ::logmessagetransporter::Messages& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::logmessagetransporter::Acknowledge>* PrepareAsyncsendLogMessagesRaw(::grpc::ClientContext* context, const ::logmessagetransporter::Messages& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::logmessagetransporter::AcknowledgeReply>* AsyncsendLogMessagesRaw(::grpc::ClientContext* context, const ::logmessagetransporter::MessagesRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::logmessagetransporter::AcknowledgeReply>* PrepareAsyncsendLogMessagesRaw(::grpc::ClientContext* context, const ::logmessagetransporter::MessagesRequest& request, ::grpc::CompletionQueue* cq) override;
     const ::grpc::internal::RpcMethod rpcmethod_sendLogMessages_;
   };
   static std::unique_ptr<Stub> NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
@@ -104,7 +104,7 @@ class LogMessageTransporter final {
    public:
     Service();
     virtual ~Service();
-    virtual ::grpc::Status sendLogMessages(::grpc::ServerContext* context, const ::logmessagetransporter::Messages* request, ::logmessagetransporter::Acknowledge* response);
+    virtual ::grpc::Status sendLogMessages(::grpc::ServerContext* context, const ::logmessagetransporter::MessagesRequest* request, ::logmessagetransporter::AcknowledgeReply* response);
   };
   template <class BaseClass>
   class WithAsyncMethod_sendLogMessages : public BaseClass {
@@ -118,11 +118,11 @@ class LogMessageTransporter final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status sendLogMessages(::grpc::ServerContext* /*context*/, const ::logmessagetransporter::Messages* /*request*/, ::logmessagetransporter::Acknowledge* /*response*/) override {
+    ::grpc::Status sendLogMessages(::grpc::ServerContext* /*context*/, const ::logmessagetransporter::MessagesRequest* /*request*/, ::logmessagetransporter::AcknowledgeReply* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestsendLogMessages(::grpc::ServerContext* context, ::logmessagetransporter::Messages* request, ::grpc::ServerAsyncResponseWriter< ::logmessagetransporter::Acknowledge>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestsendLogMessages(::grpc::ServerContext* context, ::logmessagetransporter::MessagesRequest* request, ::grpc::ServerAsyncResponseWriter< ::logmessagetransporter::AcknowledgeReply>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(0, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
@@ -134,17 +134,17 @@ class LogMessageTransporter final {
    public:
     ExperimentalWithCallbackMethod_sendLogMessages() {
       ::grpc::Service::experimental().MarkMethodCallback(0,
-        new ::grpc_impl::internal::CallbackUnaryHandler< ::logmessagetransporter::Messages, ::logmessagetransporter::Acknowledge>(
+        new ::grpc_impl::internal::CallbackUnaryHandler< ::logmessagetransporter::MessagesRequest, ::logmessagetransporter::AcknowledgeReply>(
           [this](::grpc::ServerContext* context,
-                 const ::logmessagetransporter::Messages* request,
-                 ::logmessagetransporter::Acknowledge* response,
+                 const ::logmessagetransporter::MessagesRequest* request,
+                 ::logmessagetransporter::AcknowledgeReply* response,
                  ::grpc::experimental::ServerCallbackRpcController* controller) {
                    return this->sendLogMessages(context, request, response, controller);
                  }));
     }
     void SetMessageAllocatorFor_sendLogMessages(
-        ::grpc::experimental::MessageAllocator< ::logmessagetransporter::Messages, ::logmessagetransporter::Acknowledge>* allocator) {
-      static_cast<::grpc_impl::internal::CallbackUnaryHandler< ::logmessagetransporter::Messages, ::logmessagetransporter::Acknowledge>*>(
+        ::grpc::experimental::MessageAllocator< ::logmessagetransporter::MessagesRequest, ::logmessagetransporter::AcknowledgeReply>* allocator) {
+      static_cast<::grpc_impl::internal::CallbackUnaryHandler< ::logmessagetransporter::MessagesRequest, ::logmessagetransporter::AcknowledgeReply>*>(
           ::grpc::Service::experimental().GetHandler(0))
               ->SetMessageAllocator(allocator);
     }
@@ -152,11 +152,11 @@ class LogMessageTransporter final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status sendLogMessages(::grpc::ServerContext* /*context*/, const ::logmessagetransporter::Messages* /*request*/, ::logmessagetransporter::Acknowledge* /*response*/) override {
+    ::grpc::Status sendLogMessages(::grpc::ServerContext* /*context*/, const ::logmessagetransporter::MessagesRequest* /*request*/, ::logmessagetransporter::AcknowledgeReply* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual void sendLogMessages(::grpc::ServerContext* /*context*/, const ::logmessagetransporter::Messages* /*request*/, ::logmessagetransporter::Acknowledge* /*response*/, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
+    virtual void sendLogMessages(::grpc::ServerContext* /*context*/, const ::logmessagetransporter::MessagesRequest* /*request*/, ::logmessagetransporter::AcknowledgeReply* /*response*/, ::grpc::experimental::ServerCallbackRpcController* controller) { controller->Finish(::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "")); }
   };
   typedef ExperimentalWithCallbackMethod_sendLogMessages<Service > ExperimentalCallbackService;
   template <class BaseClass>
@@ -171,7 +171,7 @@ class LogMessageTransporter final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status sendLogMessages(::grpc::ServerContext* /*context*/, const ::logmessagetransporter::Messages* /*request*/, ::logmessagetransporter::Acknowledge* /*response*/) override {
+    ::grpc::Status sendLogMessages(::grpc::ServerContext* /*context*/, const ::logmessagetransporter::MessagesRequest* /*request*/, ::logmessagetransporter::AcknowledgeReply* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -188,7 +188,7 @@ class LogMessageTransporter final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status sendLogMessages(::grpc::ServerContext* /*context*/, const ::logmessagetransporter::Messages* /*request*/, ::logmessagetransporter::Acknowledge* /*response*/) override {
+    ::grpc::Status sendLogMessages(::grpc::ServerContext* /*context*/, const ::logmessagetransporter::MessagesRequest* /*request*/, ::logmessagetransporter::AcknowledgeReply* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -215,7 +215,7 @@ class LogMessageTransporter final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status sendLogMessages(::grpc::ServerContext* /*context*/, const ::logmessagetransporter::Messages* /*request*/, ::logmessagetransporter::Acknowledge* /*response*/) override {
+    ::grpc::Status sendLogMessages(::grpc::ServerContext* /*context*/, const ::logmessagetransporter::MessagesRequest* /*request*/, ::logmessagetransporter::AcknowledgeReply* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -228,18 +228,18 @@ class LogMessageTransporter final {
    public:
     WithStreamedUnaryMethod_sendLogMessages() {
       ::grpc::Service::MarkMethodStreamed(0,
-        new ::grpc::internal::StreamedUnaryHandler< ::logmessagetransporter::Messages, ::logmessagetransporter::Acknowledge>(std::bind(&WithStreamedUnaryMethod_sendLogMessages<BaseClass>::StreamedsendLogMessages, this, std::placeholders::_1, std::placeholders::_2)));
+        new ::grpc::internal::StreamedUnaryHandler< ::logmessagetransporter::MessagesRequest, ::logmessagetransporter::AcknowledgeReply>(std::bind(&WithStreamedUnaryMethod_sendLogMessages<BaseClass>::StreamedsendLogMessages, this, std::placeholders::_1, std::placeholders::_2)));
     }
     ~WithStreamedUnaryMethod_sendLogMessages() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status sendLogMessages(::grpc::ServerContext* /*context*/, const ::logmessagetransporter::Messages* /*request*/, ::logmessagetransporter::Acknowledge* /*response*/) override {
+    ::grpc::Status sendLogMessages(::grpc::ServerContext* /*context*/, const ::logmessagetransporter::MessagesRequest* /*request*/, ::logmessagetransporter::AcknowledgeReply* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     // replace default version of method with streamed unary
-    virtual ::grpc::Status StreamedsendLogMessages(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::logmessagetransporter::Messages,::logmessagetransporter::Acknowledge>* server_unary_streamer) = 0;
+    virtual ::grpc::Status StreamedsendLogMessages(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::logmessagetransporter::MessagesRequest,::logmessagetransporter::AcknowledgeReply>* server_unary_streamer) = 0;
   };
   typedef WithStreamedUnaryMethod_sendLogMessages<Service > StreamedUnaryService;
   typedef Service SplitStreamedService;

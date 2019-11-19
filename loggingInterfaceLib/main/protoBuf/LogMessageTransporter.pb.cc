@@ -16,42 +16,42 @@
 // @@protoc_insertion_point(includes)
 #include <google/protobuf/port_def.inc>
 namespace logmessagetransporter {
-class MessagesDefaultTypeInternal {
+class MessagesRequestDefaultTypeInternal {
  public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<Messages> _instance;
-} _Messages_default_instance_;
-class AcknowledgeDefaultTypeInternal {
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<MessagesRequest> _instance;
+} _MessagesRequest_default_instance_;
+class AcknowledgeReplyDefaultTypeInternal {
  public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<Acknowledge> _instance;
-} _Acknowledge_default_instance_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<AcknowledgeReply> _instance;
+} _AcknowledgeReply_default_instance_;
 }  // namespace logmessagetransporter
-static void InitDefaultsscc_info_Acknowledge_LogMessageTransporter_2eproto() {
+static void InitDefaultsscc_info_AcknowledgeReply_LogMessageTransporter_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   {
-    void* ptr = &::logmessagetransporter::_Acknowledge_default_instance_;
-    new (ptr) ::logmessagetransporter::Acknowledge();
+    void* ptr = &::logmessagetransporter::_AcknowledgeReply_default_instance_;
+    new (ptr) ::logmessagetransporter::AcknowledgeReply();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::logmessagetransporter::Acknowledge::InitAsDefaultInstance();
+  ::logmessagetransporter::AcknowledgeReply::InitAsDefaultInstance();
 }
 
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Acknowledge_LogMessageTransporter_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsscc_info_Acknowledge_LogMessageTransporter_2eproto}, {}};
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_AcknowledgeReply_LogMessageTransporter_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsscc_info_AcknowledgeReply_LogMessageTransporter_2eproto}, {}};
 
-static void InitDefaultsscc_info_Messages_LogMessageTransporter_2eproto() {
+static void InitDefaultsscc_info_MessagesRequest_LogMessageTransporter_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   {
-    void* ptr = &::logmessagetransporter::_Messages_default_instance_;
-    new (ptr) ::logmessagetransporter::Messages();
+    void* ptr = &::logmessagetransporter::_MessagesRequest_default_instance_;
+    new (ptr) ::logmessagetransporter::MessagesRequest();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::logmessagetransporter::Messages::InitAsDefaultInstance();
+  ::logmessagetransporter::MessagesRequest::InitAsDefaultInstance();
 }
 
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Messages_LogMessageTransporter_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsscc_info_Messages_LogMessageTransporter_2eproto}, {}};
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_MessagesRequest_LogMessageTransporter_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, InitDefaultsscc_info_MessagesRequest_LogMessageTransporter_2eproto}, {}};
 
 static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_LogMessageTransporter_2eproto[2];
 static constexpr ::PROTOBUF_NAMESPACE_ID::EnumDescriptor const** file_level_enum_descriptors_LogMessageTransporter_2eproto = nullptr;
@@ -59,48 +59,49 @@ static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_s
 
 const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_LogMessageTransporter_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::logmessagetransporter::Messages, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::logmessagetransporter::MessagesRequest, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::logmessagetransporter::Messages, size_),
-  PROTOBUF_FIELD_OFFSET(::logmessagetransporter::Messages, logmessages_),
+  PROTOBUF_FIELD_OFFSET(::logmessagetransporter::MessagesRequest, size_),
+  PROTOBUF_FIELD_OFFSET(::logmessagetransporter::MessagesRequest, logmessages_),
   ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::logmessagetransporter::Acknowledge, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::logmessagetransporter::AcknowledgeReply, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::logmessagetransporter::Acknowledge, result_),
+  PROTOBUF_FIELD_OFFSET(::logmessagetransporter::AcknowledgeReply, result_),
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
-  { 0, -1, sizeof(::logmessagetransporter::Messages)},
-  { 7, -1, sizeof(::logmessagetransporter::Acknowledge)},
+  { 0, -1, sizeof(::logmessagetransporter::MessagesRequest)},
+  { 7, -1, sizeof(::logmessagetransporter::AcknowledgeReply)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::logmessagetransporter::_Messages_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::logmessagetransporter::_Acknowledge_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::logmessagetransporter::_MessagesRequest_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::logmessagetransporter::_AcknowledgeReply_default_instance_),
 };
 
 const char descriptor_table_protodef_LogMessageTransporter_2eproto[] =
   "\n\033LogMessageTransporter.proto\022\025logmessag"
-  "etransporter\"-\n\010Messages\022\014\n\004size\030\001 \001(\005\022\023"
-  "\n\013logMessages\030\002 \001(\t\"\035\n\013Acknowledge\022\016\n\006re"
-  "sult\030\001 \001(\0102q\n\025LogMessageTransporter\022X\n\017s"
-  "endLogMessages\022\037.logmessagetransporter.M"
-  "essages\032\".logmessagetransporter.Acknowle"
-  "dge\"\000B\t\n\007ex.grpcb\006proto3"
+  "etransporter\"4\n\017MessagesRequest\022\014\n\004size\030"
+  "\001 \001(\005\022\023\n\013logMessages\030\002 \003(\t\"\"\n\020Acknowledg"
+  "eReply\022\016\n\006result\030\001 \001(\0102}\n\025LogMessageTran"
+  "sporter\022d\n\017sendLogMessages\022&.logmessaget"
+  "ransporter.MessagesRequest\032\'.logmessaget"
+  "ransporter.AcknowledgeReply\"\000B\t\n\007ex.grpc"
+  "b\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_LogMessageTransporter_2eproto_deps[1] = {
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_LogMessageTransporter_2eproto_sccs[2] = {
-  &scc_info_Acknowledge_LogMessageTransporter_2eproto.base,
-  &scc_info_Messages_LogMessageTransporter_2eproto.base,
+  &scc_info_AcknowledgeReply_LogMessageTransporter_2eproto.base,
+  &scc_info_MessagesRequest_LogMessageTransporter_2eproto.base,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_LogMessageTransporter_2eproto_once;
 static bool descriptor_table_LogMessageTransporter_2eproto_initialized = false;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_LogMessageTransporter_2eproto = {
-  &descriptor_table_LogMessageTransporter_2eproto_initialized, descriptor_table_protodef_LogMessageTransporter_2eproto, "LogMessageTransporter.proto", 264,
+  &descriptor_table_LogMessageTransporter_2eproto_initialized, descriptor_table_protodef_LogMessageTransporter_2eproto, "LogMessageTransporter.proto", 288,
   &descriptor_table_LogMessageTransporter_2eproto_once, descriptor_table_LogMessageTransporter_2eproto_sccs, descriptor_table_LogMessageTransporter_2eproto_deps, 2, 0,
   schemas, file_default_instances, TableStruct_LogMessageTransporter_2eproto::offsets,
   file_level_metadata_LogMessageTransporter_2eproto, 2, file_level_enum_descriptors_LogMessageTransporter_2eproto, file_level_service_descriptors_LogMessageTransporter_2eproto,
@@ -112,71 +113,66 @@ namespace logmessagetransporter {
 
 // ===================================================================
 
-void Messages::InitAsDefaultInstance() {
+void MessagesRequest::InitAsDefaultInstance() {
 }
-class Messages::HasBitSetters {
+class MessagesRequest::HasBitSetters {
  public:
 };
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int Messages::kSizeFieldNumber;
-const int Messages::kLogMessagesFieldNumber;
+const int MessagesRequest::kSizeFieldNumber;
+const int MessagesRequest::kLogMessagesFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
-Messages::Messages()
+MessagesRequest::MessagesRequest()
   : ::PROTOBUF_NAMESPACE_ID::Message(), _internal_metadata_(nullptr) {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:logmessagetransporter.Messages)
+  // @@protoc_insertion_point(constructor:logmessagetransporter.MessagesRequest)
 }
-Messages::Messages(const Messages& from)
+MessagesRequest::MessagesRequest(const MessagesRequest& from)
   : ::PROTOBUF_NAMESPACE_ID::Message(),
-      _internal_metadata_(nullptr) {
+      _internal_metadata_(nullptr),
+      logmessages_(from.logmessages_) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
-  logmessages_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (from.logmessages().size() > 0) {
-    logmessages_.AssignWithDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from.logmessages_);
-  }
   size_ = from.size_;
-  // @@protoc_insertion_point(copy_constructor:logmessagetransporter.Messages)
+  // @@protoc_insertion_point(copy_constructor:logmessagetransporter.MessagesRequest)
 }
 
-void Messages::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_Messages_LogMessageTransporter_2eproto.base);
-  logmessages_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+void MessagesRequest::SharedCtor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_MessagesRequest_LogMessageTransporter_2eproto.base);
   size_ = 0;
 }
 
-Messages::~Messages() {
-  // @@protoc_insertion_point(destructor:logmessagetransporter.Messages)
+MessagesRequest::~MessagesRequest() {
+  // @@protoc_insertion_point(destructor:logmessagetransporter.MessagesRequest)
   SharedDtor();
 }
 
-void Messages::SharedDtor() {
-  logmessages_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+void MessagesRequest::SharedDtor() {
 }
 
-void Messages::SetCachedSize(int size) const {
+void MessagesRequest::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const Messages& Messages::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_Messages_LogMessageTransporter_2eproto.base);
+const MessagesRequest& MessagesRequest::default_instance() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_MessagesRequest_LogMessageTransporter_2eproto.base);
   return *internal_default_instance();
 }
 
 
-void Messages::Clear() {
-// @@protoc_insertion_point(message_clear_start:logmessagetransporter.Messages)
+void MessagesRequest::Clear() {
+// @@protoc_insertion_point(message_clear_start:logmessagetransporter.MessagesRequest)
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  logmessages_.ClearToEmptyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  logmessages_.Clear();
   size_ = 0;
   _internal_metadata_.Clear();
 }
 
 #if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
-const char* Messages::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* MessagesRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
@@ -190,11 +186,16 @@ const char* Messages::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::i
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // string logMessages = 2;
+      // repeated string logMessages = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParserUTF8(mutable_logmessages(), ptr, ctx, "logmessagetransporter.Messages.logMessages");
-          CHK_(ptr);
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParserUTF8(add_logmessages(), ptr, ctx, "logmessagetransporter.MessagesRequest.logMessages");
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<::PROTOBUF_NAMESPACE_ID::uint8>(ptr) == 18);
         } else goto handle_unusual;
         continue;
       default: {
@@ -217,11 +218,11 @@ failure:
 #undef CHK_
 }
 #else  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
-bool Messages::MergePartialFromCodedStream(
+bool MessagesRequest::MergePartialFromCodedStream(
     ::PROTOBUF_NAMESPACE_ID::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!PROTOBUF_PREDICT_TRUE(EXPRESSION)) goto failure
   ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-  // @@protoc_insertion_point(parse_start:logmessagetransporter.Messages)
+  // @@protoc_insertion_point(parse_start:logmessagetransporter.MessagesRequest)
   for (;;) {
     ::std::pair<::PROTOBUF_NAMESPACE_ID::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
     tag = p.first;
@@ -240,15 +241,16 @@ bool Messages::MergePartialFromCodedStream(
         break;
       }
 
-      // string logMessages = 2;
+      // repeated string logMessages = 2;
       case 2: {
         if (static_cast< ::PROTOBUF_NAMESPACE_ID::uint8>(tag) == (18 & 0xFF)) {
           DO_(::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::ReadString(
-                input, this->mutable_logmessages()));
+                input, this->add_logmessages()));
           DO_(::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-            this->logmessages().data(), static_cast<int>(this->logmessages().length()),
+            this->logmessages(this->logmessages_size() - 1).data(),
+            static_cast<int>(this->logmessages(this->logmessages_size() - 1).length()),
             ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::PARSE,
-            "logmessagetransporter.Messages.logMessages"));
+            "logmessagetransporter.MessagesRequest.logMessages"));
         } else {
           goto handle_unusual;
         }
@@ -267,18 +269,18 @@ bool Messages::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:logmessagetransporter.Messages)
+  // @@protoc_insertion_point(parse_success:logmessagetransporter.MessagesRequest)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:logmessagetransporter.Messages)
+  // @@protoc_insertion_point(parse_failure:logmessagetransporter.MessagesRequest)
   return false;
 #undef DO_
 }
 #endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
 
-void Messages::SerializeWithCachedSizes(
+void MessagesRequest::SerializeWithCachedSizes(
     ::PROTOBUF_NAMESPACE_ID::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:logmessagetransporter.Messages)
+  // @@protoc_insertion_point(serialize_start:logmessagetransporter.MessagesRequest)
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -287,26 +289,26 @@ void Messages::SerializeWithCachedSizes(
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32(1, this->size(), output);
   }
 
-  // string logMessages = 2;
-  if (this->logmessages().size() > 0) {
+  // repeated string logMessages = 2;
+  for (int i = 0, n = this->logmessages_size(); i < n; i++) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      this->logmessages().data(), static_cast<int>(this->logmessages().length()),
+      this->logmessages(i).data(), static_cast<int>(this->logmessages(i).length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "logmessagetransporter.Messages.logMessages");
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteStringMaybeAliased(
-      2, this->logmessages(), output);
+      "logmessagetransporter.MessagesRequest.logMessages");
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteString(
+      2, this->logmessages(i), output);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SerializeUnknownFields(
         _internal_metadata_.unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:logmessagetransporter.Messages)
+  // @@protoc_insertion_point(serialize_end:logmessagetransporter.MessagesRequest)
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* Messages::InternalSerializeWithCachedSizesToArray(
+::PROTOBUF_NAMESPACE_ID::uint8* MessagesRequest::InternalSerializeWithCachedSizesToArray(
     ::PROTOBUF_NAMESPACE_ID::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:logmessagetransporter.Messages)
+  // @@protoc_insertion_point(serialize_to_array_start:logmessagetransporter.MessagesRequest)
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -315,27 +317,26 @@ void Messages::SerializeWithCachedSizes(
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(1, this->size(), target);
   }
 
-  // string logMessages = 2;
-  if (this->logmessages().size() > 0) {
+  // repeated string logMessages = 2;
+  for (int i = 0, n = this->logmessages_size(); i < n; i++) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      this->logmessages().data(), static_cast<int>(this->logmessages().length()),
+      this->logmessages(i).data(), static_cast<int>(this->logmessages(i).length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "logmessagetransporter.Messages.logMessages");
-    target =
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteStringToArray(
-        2, this->logmessages(), target);
+      "logmessagetransporter.MessagesRequest.logMessages");
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      WriteStringToArray(2, this->logmessages(i), target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:logmessagetransporter.Messages)
+  // @@protoc_insertion_point(serialize_to_array_end:logmessagetransporter.MessagesRequest)
   return target;
 }
 
-size_t Messages::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:logmessagetransporter.Messages)
+size_t MessagesRequest::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:logmessagetransporter.MessagesRequest)
   size_t total_size = 0;
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -347,11 +348,12 @@ size_t Messages::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // string logMessages = 2;
-  if (this->logmessages().size() > 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-        this->logmessages());
+  // repeated string logMessages = 2;
+  total_size += 1 *
+      ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(this->logmessages_size());
+  for (int i = 0, n = this->logmessages_size(); i < n; i++) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+      this->logmessages(i));
   }
 
   // int32 size = 1;
@@ -366,120 +368,116 @@ size_t Messages::ByteSizeLong() const {
   return total_size;
 }
 
-void Messages::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:logmessagetransporter.Messages)
+void MessagesRequest::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:logmessagetransporter.MessagesRequest)
   GOOGLE_DCHECK_NE(&from, this);
-  const Messages* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<Messages>(
+  const MessagesRequest* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<MessagesRequest>(
           &from);
   if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:logmessagetransporter.Messages)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:logmessagetransporter.MessagesRequest)
     ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:logmessagetransporter.Messages)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:logmessagetransporter.MessagesRequest)
     MergeFrom(*source);
   }
 }
 
-void Messages::MergeFrom(const Messages& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:logmessagetransporter.Messages)
+void MessagesRequest::MergeFrom(const MessagesRequest& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:logmessagetransporter.MessagesRequest)
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.logmessages().size() > 0) {
-
-    logmessages_.AssignWithDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from.logmessages_);
-  }
+  logmessages_.MergeFrom(from.logmessages_);
   if (from.size() != 0) {
     set_size(from.size());
   }
 }
 
-void Messages::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:logmessagetransporter.Messages)
+void MessagesRequest::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:logmessagetransporter.MessagesRequest)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void Messages::CopyFrom(const Messages& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:logmessagetransporter.Messages)
+void MessagesRequest::CopyFrom(const MessagesRequest& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:logmessagetransporter.MessagesRequest)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool Messages::IsInitialized() const {
+bool MessagesRequest::IsInitialized() const {
   return true;
 }
 
-void Messages::Swap(Messages* other) {
+void MessagesRequest::Swap(MessagesRequest* other) {
   if (other == this) return;
   InternalSwap(other);
 }
-void Messages::InternalSwap(Messages* other) {
+void MessagesRequest::InternalSwap(MessagesRequest* other) {
   using std::swap;
   _internal_metadata_.Swap(&other->_internal_metadata_);
-  logmessages_.Swap(&other->logmessages_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
-    GetArenaNoVirtual());
+  logmessages_.InternalSwap(CastToBase(&other->logmessages_));
   swap(size_, other->size_);
 }
 
-::PROTOBUF_NAMESPACE_ID::Metadata Messages::GetMetadata() const {
+::PROTOBUF_NAMESPACE_ID::Metadata MessagesRequest::GetMetadata() const {
   return GetMetadataStatic();
 }
 
 
 // ===================================================================
 
-void Acknowledge::InitAsDefaultInstance() {
+void AcknowledgeReply::InitAsDefaultInstance() {
 }
-class Acknowledge::HasBitSetters {
+class AcknowledgeReply::HasBitSetters {
  public:
 };
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int Acknowledge::kResultFieldNumber;
+const int AcknowledgeReply::kResultFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
-Acknowledge::Acknowledge()
+AcknowledgeReply::AcknowledgeReply()
   : ::PROTOBUF_NAMESPACE_ID::Message(), _internal_metadata_(nullptr) {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:logmessagetransporter.Acknowledge)
+  // @@protoc_insertion_point(constructor:logmessagetransporter.AcknowledgeReply)
 }
-Acknowledge::Acknowledge(const Acknowledge& from)
+AcknowledgeReply::AcknowledgeReply(const AcknowledgeReply& from)
   : ::PROTOBUF_NAMESPACE_ID::Message(),
       _internal_metadata_(nullptr) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   result_ = from.result_;
-  // @@protoc_insertion_point(copy_constructor:logmessagetransporter.Acknowledge)
+  // @@protoc_insertion_point(copy_constructor:logmessagetransporter.AcknowledgeReply)
 }
 
-void Acknowledge::SharedCtor() {
+void AcknowledgeReply::SharedCtor() {
   result_ = false;
 }
 
-Acknowledge::~Acknowledge() {
-  // @@protoc_insertion_point(destructor:logmessagetransporter.Acknowledge)
+AcknowledgeReply::~AcknowledgeReply() {
+  // @@protoc_insertion_point(destructor:logmessagetransporter.AcknowledgeReply)
   SharedDtor();
 }
 
-void Acknowledge::SharedDtor() {
+void AcknowledgeReply::SharedDtor() {
 }
 
-void Acknowledge::SetCachedSize(int size) const {
+void AcknowledgeReply::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const Acknowledge& Acknowledge::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_Acknowledge_LogMessageTransporter_2eproto.base);
+const AcknowledgeReply& AcknowledgeReply::default_instance() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_AcknowledgeReply_LogMessageTransporter_2eproto.base);
   return *internal_default_instance();
 }
 
 
-void Acknowledge::Clear() {
-// @@protoc_insertion_point(message_clear_start:logmessagetransporter.Acknowledge)
+void AcknowledgeReply::Clear() {
+// @@protoc_insertion_point(message_clear_start:logmessagetransporter.AcknowledgeReply)
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
@@ -489,7 +487,7 @@ void Acknowledge::Clear() {
 }
 
 #if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
-const char* Acknowledge::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* AcknowledgeReply::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
@@ -523,11 +521,11 @@ failure:
 #undef CHK_
 }
 #else  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
-bool Acknowledge::MergePartialFromCodedStream(
+bool AcknowledgeReply::MergePartialFromCodedStream(
     ::PROTOBUF_NAMESPACE_ID::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!PROTOBUF_PREDICT_TRUE(EXPRESSION)) goto failure
   ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-  // @@protoc_insertion_point(parse_start:logmessagetransporter.Acknowledge)
+  // @@protoc_insertion_point(parse_start:logmessagetransporter.AcknowledgeReply)
   for (;;) {
     ::std::pair<::PROTOBUF_NAMESPACE_ID::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
     tag = p.first;
@@ -558,18 +556,18 @@ bool Acknowledge::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:logmessagetransporter.Acknowledge)
+  // @@protoc_insertion_point(parse_success:logmessagetransporter.AcknowledgeReply)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:logmessagetransporter.Acknowledge)
+  // @@protoc_insertion_point(parse_failure:logmessagetransporter.AcknowledgeReply)
   return false;
 #undef DO_
 }
 #endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
 
-void Acknowledge::SerializeWithCachedSizes(
+void AcknowledgeReply::SerializeWithCachedSizes(
     ::PROTOBUF_NAMESPACE_ID::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:logmessagetransporter.Acknowledge)
+  // @@protoc_insertion_point(serialize_start:logmessagetransporter.AcknowledgeReply)
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -582,12 +580,12 @@ void Acknowledge::SerializeWithCachedSizes(
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SerializeUnknownFields(
         _internal_metadata_.unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:logmessagetransporter.Acknowledge)
+  // @@protoc_insertion_point(serialize_end:logmessagetransporter.AcknowledgeReply)
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* Acknowledge::InternalSerializeWithCachedSizesToArray(
+::PROTOBUF_NAMESPACE_ID::uint8* AcknowledgeReply::InternalSerializeWithCachedSizesToArray(
     ::PROTOBUF_NAMESPACE_ID::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:logmessagetransporter.Acknowledge)
+  // @@protoc_insertion_point(serialize_to_array_start:logmessagetransporter.AcknowledgeReply)
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -600,12 +598,12 @@ void Acknowledge::SerializeWithCachedSizes(
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:logmessagetransporter.Acknowledge)
+  // @@protoc_insertion_point(serialize_to_array_end:logmessagetransporter.AcknowledgeReply)
   return target;
 }
 
-size_t Acknowledge::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:logmessagetransporter.Acknowledge)
+size_t AcknowledgeReply::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:logmessagetransporter.AcknowledgeReply)
   size_t total_size = 0;
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -627,23 +625,23 @@ size_t Acknowledge::ByteSizeLong() const {
   return total_size;
 }
 
-void Acknowledge::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:logmessagetransporter.Acknowledge)
+void AcknowledgeReply::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:logmessagetransporter.AcknowledgeReply)
   GOOGLE_DCHECK_NE(&from, this);
-  const Acknowledge* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<Acknowledge>(
+  const AcknowledgeReply* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<AcknowledgeReply>(
           &from);
   if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:logmessagetransporter.Acknowledge)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:logmessagetransporter.AcknowledgeReply)
     ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:logmessagetransporter.Acknowledge)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:logmessagetransporter.AcknowledgeReply)
     MergeFrom(*source);
   }
 }
 
-void Acknowledge::MergeFrom(const Acknowledge& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:logmessagetransporter.Acknowledge)
+void AcknowledgeReply::MergeFrom(const AcknowledgeReply& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:logmessagetransporter.AcknowledgeReply)
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
@@ -654,35 +652,35 @@ void Acknowledge::MergeFrom(const Acknowledge& from) {
   }
 }
 
-void Acknowledge::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:logmessagetransporter.Acknowledge)
+void AcknowledgeReply::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:logmessagetransporter.AcknowledgeReply)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void Acknowledge::CopyFrom(const Acknowledge& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:logmessagetransporter.Acknowledge)
+void AcknowledgeReply::CopyFrom(const AcknowledgeReply& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:logmessagetransporter.AcknowledgeReply)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool Acknowledge::IsInitialized() const {
+bool AcknowledgeReply::IsInitialized() const {
   return true;
 }
 
-void Acknowledge::Swap(Acknowledge* other) {
+void AcknowledgeReply::Swap(AcknowledgeReply* other) {
   if (other == this) return;
   InternalSwap(other);
 }
-void Acknowledge::InternalSwap(Acknowledge* other) {
+void AcknowledgeReply::InternalSwap(AcknowledgeReply* other) {
   using std::swap;
   _internal_metadata_.Swap(&other->_internal_metadata_);
   swap(result_, other->result_);
 }
 
-::PROTOBUF_NAMESPACE_ID::Metadata Acknowledge::GetMetadata() const {
+::PROTOBUF_NAMESPACE_ID::Metadata AcknowledgeReply::GetMetadata() const {
   return GetMetadataStatic();
 }
 
@@ -690,11 +688,11 @@ void Acknowledge::InternalSwap(Acknowledge* other) {
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace logmessagetransporter
 PROTOBUF_NAMESPACE_OPEN
-template<> PROTOBUF_NOINLINE ::logmessagetransporter::Messages* Arena::CreateMaybeMessage< ::logmessagetransporter::Messages >(Arena* arena) {
-  return Arena::CreateInternal< ::logmessagetransporter::Messages >(arena);
+template<> PROTOBUF_NOINLINE ::logmessagetransporter::MessagesRequest* Arena::CreateMaybeMessage< ::logmessagetransporter::MessagesRequest >(Arena* arena) {
+  return Arena::CreateInternal< ::logmessagetransporter::MessagesRequest >(arena);
 }
-template<> PROTOBUF_NOINLINE ::logmessagetransporter::Acknowledge* Arena::CreateMaybeMessage< ::logmessagetransporter::Acknowledge >(Arena* arena) {
-  return Arena::CreateInternal< ::logmessagetransporter::Acknowledge >(arena);
+template<> PROTOBUF_NOINLINE ::logmessagetransporter::AcknowledgeReply* Arena::CreateMaybeMessage< ::logmessagetransporter::AcknowledgeReply >(Arena* arena) {
+  return Arena::CreateInternal< ::logmessagetransporter::AcknowledgeReply >(arena);
 }
 PROTOBUF_NAMESPACE_CLOSE
 

@@ -1,34 +1,30 @@
 #ifndef LOGGING_SERVER_CONNECTOR_H
 #define LOGGING_SERVER_CONNECTOR_H
 
-#include <arpa/inet.h>
 #include <iostream>
 #include <mutex>
-#include <netinet/in.h>
-#include <sstream>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string>
-#include <sys/socket.h>
-#include <sys/types.h>
-#include <sys/un.h>
-#include <unistd.h>
+#include <vector>
 
-#define BUF 2048
-#define UDS_FILE "/tmp/loggingServer/serverConnection.uds"
+#include "LoggingTransporter/DomainSocketTransporter.hpp"
+#include "LoggingTransporter/GrpcTransporter.hpp"
+#include "LoggingTransporter/LoggingTransporter.hpp"
 
 using namespace std;
 
-#include "LogMessageTransporterClientImplementation.h"
+#define UDS_FILE "/tmp/loggingServer/serverConnection.uds"
 
 class LoggingServerConnector {
 
   private:
-
-  LogMessageTransporterClientImplementation* client;
+    LogMessageTransporterClientImplementation* client;
     int create_socket;
     string ipcServerConnetionFile;
     mutex transferMutex;
+
+    vector<LoggingTransporter*> loggingTransporter;
 
   public:
     static LoggingServerConnector& getInstance();
@@ -41,11 +37,6 @@ class LoggingServerConnector {
   private:
     LoggingServerConnector();
     ~LoggingServerConnector();
-
-    void createSocket();
-    void connectServer(string ipcSocketFile);
-    void sendPidToServer();
-    void receiveIpcServerConnetionFileFromServer();
 };
 
 #endif // ! LOGGING_SERVER_CONNECTOR_H

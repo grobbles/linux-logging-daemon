@@ -4,7 +4,10 @@ LoggingClientInterface::LoggingClientInterface() {
     Log::i(logtag, "The LoggingClientInterface will be crated.");
 
     this->logMessageProviders.push_back(new DomainSocketClientInterface());
-    this->logMessageProviders.push_back(new GrpcClientInterface());
+    // this->logMessageProviders.push_back(new GrpcClientInterface());
+
+        vector<string> transporter;
+    transporter.push_back("sdf");
 
     Log::i(logtag, "The LoggingClientInterface is created.");
 }

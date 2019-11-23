@@ -37,30 +37,6 @@ class LogMessageTransporterClientImplementation {
     }
 
     bool sendLogMessages(vector<string> logMessage);
-    // {
-    // string dfg = "sdsdf   ";
-    // StringUtils::trim("sdf");
-    
-    //     MessagesRequest request;
-    //     for (string mes : logMessage) {
-    //         string* message = request.add_logmessages();
-    //         message->append(mes);
-    //     }
-    //     request.set_size(logMessage.size());
-
-    //     AcknowledgeReply reply;
-
-    //     ClientContext context;
-
-    //     Status status = stub_->sendLogMessages(&context, request, &reply);
-
-    //     if (status.ok()) {
-    //         return reply.result();
-    //     } else {
-    //         std::cout << status.error_code() << ": " << status.error_message() << std::endl;
-    //         return false;
-    //     }
-    // }
 
   private:
     std::unique_ptr<LogMessageTransporter::Stub> stub_;

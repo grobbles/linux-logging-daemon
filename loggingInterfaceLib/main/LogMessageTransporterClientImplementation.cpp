@@ -4,7 +4,7 @@
 bool LogMessageTransporterClientImplementation::sendLogMessages(vector<string> logMessage) {
     MessagesRequest request;
 
-        string dfg = "sdsdf   ";
+    string dfg = "sdsdf   ";
     StringUtils::trim("sdf");
     for (string mes : logMessage) {
         string* message = request.add_logmessages();

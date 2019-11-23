@@ -100,6 +100,10 @@ If you want to add a new feature than create a new branch from master branch and
 ```bash
      export GRPC_TRACE=all && ./build/loggingDaemon/main/loggingDaemon
      export GRPC_TRACE=all && ./build/Client/Client
+
+
+     GRPC_VERBOSITY=debug ./build/loggingDaemon/main/loggingDaemon
+     GRPC_VERBOSITY=debug ./build/Client/Client
 ```
 
 ## Software versioning

@@ -4,13 +4,10 @@
 #include <set>
 #include <string>
 
-#include "../../../Utils//ObserverPattern/Observer.hpp"
-#include "../../../Utils//ObserverPattern/Subject.hpp"
-#include "../../../Utils/DataStorage/DataStorage.hpp"
-#include "../../../Utils/Logging/Logger.hpp"
+#include "DataStorage/DataStorage.hpp"
+#include "Logging/Logger.hpp"
 
-#include "../../../Utils/DataStorage/DataStorage.hpp"
-#include "../../LogMessageProvider.hpp"
+#include "DataStorage/DataStorage.hpp"
 
 #include <grpcpp/grpcpp.h>
 using grpc::Server;
@@ -18,7 +15,7 @@ using grpc::ServerBuilder;
 using grpc::ServerContext;
 using grpc::Status;
 
-#include "LogMessageTransporter.grpc.pb.h"
+#include "protoBuf/LogMessageTransporter.grpc.pb.h"
 using logmessagetransporter::AcknowledgeReply;
 using logmessagetransporter::LogMessageTransporter;
 using logmessagetransporter::MessagesRequest;
@@ -31,6 +28,8 @@ class LogMessageTransporterServiceImplementation final : public LogMessageTransp
 
     DataStorage<string>* logMessageStorages;
     Status sendLogMessages(ServerContext* context, const MessagesRequest* request, AcknowledgeReply* reply) override {
+
+        cout << logtag + " : sendLogMessages() " << endl;
         request->logmessages_size();
         for (int index = 0; index < request->logmessages_size(); index++) {
             Log::i(logtag, " receive : " + request->logmessages(index));
@@ -57,30 +56,5 @@ class LogMessageTransporterServiceImplementation final : public LogMessageTransp
 
     set<string> getMessages();
 };
-
-// class LogMessageTransporterServiceImpl final : LogMessageTransporter::Service {
-//   private:
-//     const string logtag = "LogMessageTransporterServiceImpl";
-//     DataStorage<string>* logMessageStorages;
-
-//   public:
-//     LogMessageTransporterServiceImpl() {
-//         this->logMessageStorages = new DataStorage<string>();
-//     }
-
-//     ~LogMessageTransporterServiceImpl(){};
-
-//     grpc::Status sendLogMessages(ServerContext* context, const MessagesRequest* request, AcknowledgeReply* response) {
-//         for (auto message : request->logmessages()) {
-//             this->logMessageStorages->update(message);
-//         }
-
-//         response->set_result(true);
-
-//         return grpc::Status::OK;
-//     };
-
-//     set<string> getMessages();
-// };
 
 #endif // LOG_MESSAGE_TRANSPORTER_SERVICE_IMPL_H

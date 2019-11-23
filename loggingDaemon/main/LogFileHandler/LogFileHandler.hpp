@@ -9,9 +9,9 @@
 #include <sys/time.h>
 #include <sys/types.h>
 
-#include "../Utils//ObserverPattern/Observer.hpp"
-#include "../Utils/DirectoryUtils/DirectoryUtils.hpp"
-#include "../Utils/Logging/Logger.hpp"
+#include "ObserverPattern/Observer.hpp"
+#include "DirectoryUtils/DirectoryUtils.hpp"
+#include "Logging/Logger.hpp"
 
 using namespace std;
 

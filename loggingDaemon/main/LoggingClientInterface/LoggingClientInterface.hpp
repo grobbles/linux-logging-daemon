@@ -5,9 +5,9 @@
 #include <vector>
 #include <string>
 
-#include "../Utils/Logging/Logger.hpp"
-#include "../Utils/ObserverPattern/Observer.hpp"
-#include "../Utils/ObserverPattern/Subject.hpp"
+#include "Logging/Logger.hpp"
+#include "ObserverPattern/Observer.hpp"
+#include "ObserverPattern/Subject.hpp"
 
 #include "DomainSocket/DomainSocketClientInterface.hpp"
 #include "GRPC/GrpcClientInterface.hpp"

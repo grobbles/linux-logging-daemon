@@ -26,7 +26,12 @@ endforeach()
 # Tell CMake to create the helloworld executable
 add_executable(${MODULE_NAME} ${SOURCES} ${HEADERS})
 
+
+include_directories(${CMAKE_SOURCE_DIR}/loggingInterfaceLib/main)
+include_directories(${CMAKE_SOURCE_DIR}/Utils/main)
+
 # link the exe against the libraries
 target_link_libraries(${MODULE_NAME} PUBLIC
     loggingInterfaceLib
+    Utils
 )

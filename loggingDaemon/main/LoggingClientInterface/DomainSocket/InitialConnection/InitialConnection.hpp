@@ -15,8 +15,8 @@
 #include <thread>
 #include <unistd.h>
 
-#include "../../../Utils//ObserverPattern/Subject.hpp"
-#include "../../../Utils/Logging/Logger.hpp"
+#include "ObserverPattern/Subject.hpp"
+#include "Logging/Logger.hpp"
 #include "ServerException.hpp"
 
 using namespace std;

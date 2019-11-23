@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.10)
-project (Logging)
+project (Utils)
 message("")
 message("PROJECT_NAME = " ${PROJECT_NAME})
 

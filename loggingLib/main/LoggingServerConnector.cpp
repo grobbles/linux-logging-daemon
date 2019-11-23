@@ -8,8 +8,8 @@ LoggingServerConnector::LoggingServerConnector() {
 
     this->createSocket();
     this->connectServer(this->ipcServerConnetionFile);
-    std::string address("0.0.0.0:3030");
 
+    std::string address("127.0.0.1:50051");
     this->client = new LogMessageTransporterClientImplementation(grpc::CreateChannel(address, grpc::InsecureChannelCredentials()));
 }
 
@@ -64,10 +64,12 @@ void LoggingServerConnector::receiveIpcServerConnetionFileFromServer() {
 }
 
 void LoggingServerConnector::sendLogString(string loggingMessage) {
+    cout << loggingMessage << std::endl;
+    
     vector<string> mes;
     mes.push_back("Test Message : " + loggingMessage);
-
     bool response = this->client->sendLogMessages(mes);
+
     // this->transferMutex.lock();
     send(create_socket, loggingMessage.c_str(), loggingMessage.size(), 0);
     // std::cout << "send message to server : " + loggingMessage << std::endl;

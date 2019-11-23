@@ -1,4 +1,5 @@
-#pragma once
+#ifndef LOG_MESSAGE_COLLECTOR_H
+#define LOG_MESSAGE_COLLECTOR_H
 
 #include <atomic>
 #include <queue>
@@ -6,8 +7,8 @@
 #include <string>
 
 #include "../LoggingClientInterface/LogMessageProvider.hpp"
-#include "../Utils//ObserverPattern/Observer.hpp"
-#include "../Utils//ObserverPattern/Subject.hpp"
+#include "ObserverPattern/Observer.hpp"
+#include "ObserverPattern/Subject.hpp"
 
 using namespace std;
 
@@ -29,3 +30,5 @@ class LogMessageCollector : public Subject<set<string>>, Observer<set<string>> {
   private:
     void run();
 };
+
+#endif // ! LOG_MESSAGE_COLLECTOR_H

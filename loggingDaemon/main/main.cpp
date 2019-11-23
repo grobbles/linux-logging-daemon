@@ -1,14 +1,14 @@
 
-#include "Utils/ArgumentParser/ArgumentParser.hpp"
-#include "Utils/DirectoryUtils/DirectoryUtils.hpp"
-#include "Utils/Logging/Logger.hpp"
-#include "Utils/Logging/LoggingProcessor.hpp"
+#include "ArgumentParser/ArgumentParser.hpp"
+#include "DirectoryUtils/DirectoryUtils.hpp"
+#include "Logging/Logger.hpp"
+#include "Logging/LoggingProcessor.hpp"
 
 #include "LogFileHandler/LogFileHandler.hpp"
 #include "LogMessageCollector/LogMessageCollector.hpp"
 #include "LoggingClientInterface/LoggingClientInterface.hpp"
-#include "Utils/DataStorage/DataStorage.hpp"
-#include "Utils/SignalHandler/KillSignalHandler.hpp"
+#include "DataStorage/DataStorage.hpp"
+#include "SignalHandler/KillSignalHandler.hpp"
 
 #include <sys/stat.h>
 #include <sys/types.h>

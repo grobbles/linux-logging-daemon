@@ -1,4 +1,5 @@
-#pragma once
+#ifndef LOGGING_SERVER_CONNECTOR_H
+#define LOGGING_SERVER_CONNECTOR_H
 
 #include <arpa/inet.h>
 #include <iostream>
@@ -18,47 +19,7 @@
 
 using namespace std;
 
-
-#include <grpcpp/grpcpp.h>
-using grpc::Channel;
-using grpc::ClientContext;
-using grpc::Status;
-
-#include "LogMessageTransporter.grpc.pb.h"
-using logmessagetransporter::AcknowledgeReply;
-using logmessagetransporter::LogMessageTransporter;
-using logmessagetransporter::MessagesRequest;
-
-class LogMessageTransporterClientImplementation {
-  public:
-    LogMessageTransporterClientImplementation(std::shared_ptr<Channel> channel) : stub_(LogMessageTransporter::NewStub(channel)) {
-    }
-
-    bool sendLogMessages(vector<string> logMessage) {
-        MessagesRequest request;
-        for (string mes : logMessage) {
-            string* message = request.add_logmessages();
-            message->append(mes);
-        }
-        request.set_size(logMessage.size());
-
-        AcknowledgeReply reply;
-
-        ClientContext context;
-
-        Status status = stub_->sendLogMessages(&context, request, &reply);
-
-        if (status.ok()) {
-            return reply.result();
-        } else {
-            std::cout << status.error_code() << ": " << status.error_message() << std::endl;
-            return false;
-        }
-    }
-
-  private:
-    std::unique_ptr<LogMessageTransporter::Stub> stub_;
-};
+#include "LogMessageTransporterClientImplementation.h"
 
 class LoggingServerConnector {
 
@@ -86,3 +47,5 @@ class LoggingServerConnector {
     void sendPidToServer();
     void receiveIpcServerConnetionFileFromServer();
 };
+
+#endif // ! LOGGING_SERVER_CONNECTOR_H

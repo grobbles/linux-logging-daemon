@@ -68,4 +68,4 @@ template <class T> class DataStorage : public Observer<T> {
     }
 };
 
-#endif // DATA_STORAGE_HPP
+#endif // ! DATA_STORAGE_HPP

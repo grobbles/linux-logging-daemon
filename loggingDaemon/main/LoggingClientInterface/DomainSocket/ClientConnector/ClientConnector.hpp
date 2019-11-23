@@ -12,10 +12,10 @@
 
 #include "ClientConnectorThread.hpp"
 
-#include "../../../Utils/DataStorage/DataStorage.hpp"
-#include "../../../Utils/Logging/Logger.hpp"
-#include "../../../Utils/ObserverPattern/Observer.hpp"
-#include "../../../Utils/ObserverPattern/Subject.hpp"
+#include "DataStorage/DataStorage.hpp"
+#include "Logging/Logger.hpp"
+#include "ObserverPattern/Observer.hpp"
+#include "ObserverPattern/Subject.hpp"
 
 using namespace std;
 

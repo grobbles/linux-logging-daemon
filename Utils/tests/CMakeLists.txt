@@ -1,5 +1,3 @@
-cmake_minimum_required(VERSION 3.10)
-
 set(MODULE_NAME ${PROJECT_NAME}Tests)
 project(${MODULE_NAME})
 message("")
@@ -7,21 +5,14 @@ message("MODULE_NAME --> " ${MODULE_NAME})
 
 set(CMAKE_CXX_FLAGS  -pthread)
 
-file(GLOB_RECURSE SOURCES "TestMain.cpp" "../*.cpp" "../*.hpp" ) 
-
-# It msut be remove the main.cpp because it was a duplicte definition.
-file(GLOB_RECURSE MAIN_PATH "../main.cpp") 
-list(REMOVE_ITEM SOURCES "${MAIN_PATH}")
-
-foreach(file ${SOURCES})
-    message("TEST SOURCE FILE = " ${file})
-endforeach()
+file(GLOB SOURCES "main.cpp" "*.cpp" "*/*.cpp"  "../main/Module/*.cpp" "../main/Module/*.hpp")
+message("${MODULE_NAME} Sources --> " ${SOURCES})
 
 add_executable(${MODULE_NAME} ${SOURCES})
 
-target_include_directories(${MODULE_NAME} PRIVATE  ../main/Utils/Logging/ ../main/Utils/ArgumentParser/ ../main/Utils/DirectoryUtils ../main/Utils/DataStorage)
+target_include_directories(${MODULE_NAME} PRIVATE  )
 
-target_link_libraries(${MODULE_NAME}  gtest)
+target_link_libraries(${MODULE_NAME}  gtest )
 
 
 

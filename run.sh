@@ -34,7 +34,7 @@ EOF
 }
 
 function projectInitialize() {
-    cmake . -B build
+    cmake -DCMAKE_VERBOSE_MAKEFILE:BOOL=ON . -B build
 }
 
 function cleanProject() {

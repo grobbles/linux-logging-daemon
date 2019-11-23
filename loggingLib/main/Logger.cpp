@@ -7,42 +7,42 @@
 
 #include "Logger.h"
 
-void Log::v(string logTag, string logmessage) {
+void Logger::v(string logTag, string logmessage) {
     string metaInfos = createMetaInformation(getCurrentDate(), logTag, "VERBOSE");
 
     stringOutput(metaInfos + logmessage);
 }
 
-void Log::d(string logTag, string logmessage) {
+void Logger::d(string logTag, string logmessage) {
     string metaInfos = createMetaInformation(getCurrentDate(), logTag, "DEBUB");
 
     stringOutput(metaInfos + logmessage);
 }
 
-void Log::i(string logTag, string logmessage) {
+void Logger::i(string logTag, string logmessage) {
     string metaInfos = createMetaInformation(getCurrentDate(), logTag, "INFO");
 
     stringOutput(metaInfos + logmessage);
 }
 
-void Log::w(string logTag, string logmessage) {
+void Logger::w(string logTag, string logmessage) {
     string metaInfos = createMetaInformation(getCurrentDate(), logTag, "WARNING");
     stringOutput(metaInfos + logmessage);
 }
 
-void Log::e(string logTag, string logmessage) {
+void Logger::e(string logTag, string logmessage) {
     string metaInfos = createMetaInformation(getCurrentDate(), logTag, "ERROR");
 
     stringOutput(metaInfos + logmessage);
 }
 
-void Log::stringOutput(string loggingMessage) {
+void Logger::stringOutput(string loggingMessage) {
     LoggingServerConnector& loggingProcessor = LoggingServerConnector::getInstance();
 
     loggingProcessor.sendLogString(loggingMessage + "\n");
 }
 
-string Log::getCurrentDate() {
+string Logger::getCurrentDate() {
     time_t now = time(0);
     tm* localTime = localtime(&now);
 
@@ -55,14 +55,14 @@ string Log::getCurrentDate() {
     return result;
 }
 
-int Log::getMilliseconds() {
+int Logger::getMilliseconds() {
     timeval curTime;
     gettimeofday(&curTime, NULL);
     int milli = curTime.tv_usec;
     return milli;
 }
 
-string Log::createMetaInformation(string date, string logtag, string logLevel) {
+string Logger::createMetaInformation(string date, string logtag, string logLevel) {
     char logMessage[140];
 
     unsigned int threadId = (unsigned int)pthread_self();

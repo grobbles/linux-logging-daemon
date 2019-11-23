@@ -1,12 +1,23 @@
-include_directories(${CMAKE_SOURCE_DIR}/loggingLib/main)
+set(MODULE_NAME Client)
+message("")
+message("MODULE_NAME --> " ${MODULE_NAME})
 
-file(GLOB SOURCES "*.cxx" "*.cpp" "*/*.cpp" "*.h" "*.hpp")
-file(GLOB HEADER "*.h" "*.hpp")
+# Find includes in the build directories
+set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
-message(${SOURCES})
+file(GLOB_RECURSE SOURCES "*.cpp")
+foreach(file ${SOURCES})
+    message("${MODULE_NAME} SOURCE FILE = " ${file})
+endforeach()
+
+file(GLOB_RECURSE HEADER "*.hpp" "*.h")
+foreach(file ${HEADER})
+    message("${MODULE_NAME} HEADER FILE = " ${file})
+endforeach()
 
 add_executable(Client ${SOURCES})
 
-target_link_libraries(Client loggingLib)
+include_directories(${CMAKE_SOURCE_DIR}/loggingLib/main)
+include_directories(${CMAKE_SOURCE_DIR}/Utils/main)
 
-# install(TARGETS Client DESTINATION ${DIVISIBLE_INSTALL_BIN_DIR})
+target_link_libraries(Client Utils Logging)

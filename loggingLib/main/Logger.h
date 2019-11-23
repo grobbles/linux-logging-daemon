@@ -5,8 +5,8 @@
  *      Author: roder
  */
 
-#ifndef LOGGING_LOGGER_HPP_
-#define LOGGING_LOGGER_HPP_
+#ifndef LOG_H_
+#define LOG_H_
 
 #include <iostream>
 #include <sstream>
@@ -26,10 +26,10 @@ using namespace std;
 
 enum LogLevel { VERBOSE, DEBUG, INFO, WARN, ERROR };
 
-class Log {
+class Logger {
   public:
-    Log();
-    ~Log();
+    Logger();
+    ~Logger();
 
     static void v(string logTag, string logMessage);
     static void d(string logTag, string logMessage);
@@ -45,4 +45,4 @@ class Log {
     static int getMilliseconds();
 };
 
-#endif /* LOGGING_LOGGER_HPP_ */
+#endif /* LOG_H_ */

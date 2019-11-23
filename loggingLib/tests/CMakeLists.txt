@@ -19,7 +19,6 @@ endforeach()
 
 add_executable(${MODULE_NAME} ${SOURCES})
 
-target_include_directories(${MODULE_NAME} PRIVATE  ../src/Logging/ ../src/ArgumentParser/)
+target_include_directories(${MODULE_NAME} PRIVATE  ../src/Logging/)
 
-target_link_libraries(${MODULE_NAME}  gtest)
 target_link_libraries(${MODULE_NAME}  gtest)

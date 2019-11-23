@@ -30,6 +30,8 @@ add_subdirectory(loggingDaemon)
 add_subdirectory(loggingLib)
 add_subdirectory(Client)
 add_subdirectory(loggingInterfaceLib)
+add_subdirectory(Utils)
+
 # add_subdirectory(gprcLogInterface)
 # add_subdirectory(CMakeExecutableTemplate)
 

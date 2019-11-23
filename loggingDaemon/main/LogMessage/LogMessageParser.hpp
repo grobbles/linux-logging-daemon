@@ -5,8 +5,8 @@
 #include <string>
 #include <vector>
 
-#include "../Utils/Logging/Logger.hpp"
-#include "../Utils/StringUtils/StringUtils.hpp"
+#include "Logging/Logger.hpp"
+#include "StringUtils/StringUtils.hpp"
 #include "LogMessage.hpp"
 
 using namespace std;

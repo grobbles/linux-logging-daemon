@@ -57,5 +57,11 @@ void DomainSocketTransporter::receiveIpcServerConnetionFileFromServer() {
 
 bool DomainSocketTransporter::sendMessage(string message) {
     send(create_socket, message.c_str(), message.size(), 0);
-    return true;
+
+    char* buffer = (char*)malloc(BUF);
+    int size;
+    do {
+        size = recv(this->create_socket, buffer, BUF - 1, 0);
+    } while (size == 0);
+    return "ack" == string(buffer).substr(0, size);
 }

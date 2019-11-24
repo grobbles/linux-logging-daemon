@@ -14,7 +14,7 @@ void Logger::v(string logTag, string logmessage) {
 }
 
 void Logger::d(string logTag, string logmessage) {
-    string metaInfos = createMetaInformation(getCurrentDate(), logTag, "DEBUB");
+    string metaInfos = createMetaInformation(getCurrentDate(), logTag, "DEBUG");
 
     stringOutput(metaInfos + logmessage);
 }

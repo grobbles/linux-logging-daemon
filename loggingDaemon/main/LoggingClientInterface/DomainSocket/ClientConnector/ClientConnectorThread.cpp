@@ -29,19 +29,25 @@ void ClientConnectorThread::createIpcSocket() {
 void ClientConnectorThread::runClientConnectionThread() {
     Log::i(this->logtag, "The server wait of client.");
 
-    char* buffer = (char*)malloc(1024);
+    char* buffer = (char*)malloc(2048);
     new_socket = accept(create_socket, (struct sockaddr*)&address, &addrlen);
     if (new_socket > 0) {
         Log::i(this->logtag, "The client is connected with server.");
     }
 
+    string acknowledge = "ack";
+    const char* acknowledgeBuffer = acknowledge.c_str();
+    const int acknowledgeSize = acknowledge.size();
+
     while (1) {
         try {
-            ssize_t size = recv(new_socket, buffer, 1024 - 1, 0);
+            ssize_t size = recv(new_socket, buffer, 2048 - 1, 0);
             if (size == 0) {
                 break;
             }
             string logMessageFromClient = string(buffer).substr(0, size);
+
+            send(new_socket, acknowledgeBuffer, acknowledgeSize, 0);
 
             if (isClientDead(logMessageFromClient)) {
                 break;

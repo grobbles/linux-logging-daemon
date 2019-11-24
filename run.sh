@@ -74,6 +74,18 @@ function run() {
     ./build/${APPLICATION_NAME}/src/$APPLICATION_NAME
 }
 
+function runClients() {
+    ./build/Client/Client &
+    ./build/Client/Client &
+    ./build/Client/Client &
+    ./build/Client/Client &
+    ./build/Client/Client &
+    ./build/Client/Client &
+    ./build/Client/Client &
+    ./build/Client/Client &
+    ./build/Client/Client &
+    ./build/Client/Client &
+}
 function createDebianPackage() {
     buildAll
 
@@ -152,6 +164,11 @@ case "$1" in
 -s | --start)
     echo "start the daeman about systemd (systemctl) "
     startDaemon
+    ;;
+
+-rC | --runClient)
+    echo "run clients "
+    runClients
     ;;
 
 -h | --help | *)

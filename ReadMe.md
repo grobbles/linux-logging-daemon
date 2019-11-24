@@ -16,6 +16,38 @@ This is a logging server for Linux.. The clients can be connected to the server 
 -   checkout this repo "https://github.com/google/googletest.git" and install all with cmake
 -   install this lib with following command "sudo apt-get install libgtest-dev"
 
+### Install ProtocolBuffer
+
+```bash
+    # On ubuntu 18.04
+    sudo apt-get install build-essential autoconf libtool pkg-config automake curl
+
+    git clone -b $(curl -L https://grpc.io/release) https://github.com/grpc/grpc
+    cd grpc
+    git submodule update --init --recursive
+
+    # Build and install protobuf
+    cd ./third_party/protobuf
+    ./autogen.sh
+    ./configure
+     make -j6
+     make check
+     sudo make install
+     sudo ldconfig # refresh shared library cache.
+```
+
+### Install GRPC
+
+````bash
+    git clone -b $(curl -L https://grpc.io/release) https://github.com/grpc/grpc
+    cd grpc
+    git submodule update --init --recursive
+
+    # Build and install gRPC
+    make -j `nproc` PROTOC=/opt/protobuf/bin/protoc
+    sudo make prefix=/opt/grpc install
+```
+
 ## Start Development
 
 Checkout this project
@@ -23,7 +55,7 @@ Checkout this project
 ```bash
     git clone git@github.com:grobbles/linux-daemon-template.git
     cd linux-daemon-template
-```
+````
 
 Run the main script to initialize the project
 
@@ -60,6 +92,19 @@ The daemon template project is optimized for visual studio code IDE.
 -   bugfix branch
 
 If you want to add a new feature than create a new branch from master branch and commit your stuff to the branch. If you think you are done than create a merge request.
+
+## Troubleshooting
+
+### Get more log from grpc interface
+
+```bash
+     export GRPC_TRACE=all && ./build/loggingDaemon/main/loggingDaemon
+     export GRPC_TRACE=all && ./build/Client/Client
+
+
+     GRPC_VERBOSITY=debug ./build/loggingDaemon/main/loggingDaemon
+     GRPC_VERBOSITY=debug ./build/Client/Client
+```
 
 ## Software versioning
 

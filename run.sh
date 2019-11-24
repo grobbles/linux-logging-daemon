@@ -34,7 +34,7 @@ EOF
 }
 
 function projectInitialize() {
-    cmake . -B build
+    cmake -DCMAKE_VERBOSE_MAKEFILE:BOOL=ON . -B build
 }
 
 function cleanProject() {
@@ -74,6 +74,18 @@ function run() {
     ./build/${APPLICATION_NAME}/src/$APPLICATION_NAME
 }
 
+function runClients() {
+    ./build/Client/Client &
+    ./build/Client/Client &
+    ./build/Client/Client &
+    ./build/Client/Client &
+    ./build/Client/Client &
+    ./build/Client/Client &
+    ./build/Client/Client &
+    ./build/Client/Client &
+    ./build/Client/Client &
+    ./build/Client/Client &
+}
 function createDebianPackage() {
     buildAll
 
@@ -134,12 +146,12 @@ case "$1" in
     buildDaemon
     ;;
 
--rT | --testDaemon)
+-tD | --testDaemon)
     echo "test daemon"
     testDaemon
     ;;
 
--rP | --run)
+-rD | --run)
     echo "run daemon"
     run
     ;;
@@ -152,6 +164,11 @@ case "$1" in
 -s | --start)
     echo "start the daeman about systemd (systemctl) "
     startDaemon
+    ;;
+
+-rC | --runClient)
+    echo "run clients "
+    runClients
     ;;
 
 -h | --help | *)

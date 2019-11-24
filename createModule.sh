@@ -37,7 +37,7 @@ function createModuleHeaderFile() {
  * ${moduleName}.hpp
  *
  *  Created on: ${date}
- *      Author: roder
+ *      Author: Uwe Roder (uweroder@gmail.com)
  */
 #ifndef ${moduleName^^}_HPP
 #define ${moduleName^^}_HPP
@@ -45,7 +45,7 @@ function createModuleHeaderFile() {
 #include <set>
 #include <string>
 
-#include "../Utils/Logging/Logger.hpp"
+#include "Logging/Logger.hpp"
 
 using namespace std;
 
@@ -90,7 +90,7 @@ function build() {
 ## Start Main Block
 case "$1" in
 -b | --build)
-    echo "build the python package"
+    echo "create files"
     build ${@:2}
     exit $?
     ;;
